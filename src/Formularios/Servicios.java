@@ -21,6 +21,37 @@ public class Servicios extends javax.swing.JFrame {
         inhabilitariconos();
         setLocationRelativeTo(null);
     }
+    void cargar(){
+        String[] registro= new String[3];
+        String status="",sSQL ="";
+        modelo=new DefaultTableModel(null,titulo);
+        ConexionMySQL mysql =new ConexionMySQL();
+        Connection cn=mysql.Conectar();
+        
+        sSQL="SELECT ser_nombre, ser_precio, ser_descripcion, ser_status FROM servicio ";
+         try {
+             Statement st=cn.createStatement();
+             ResultSet rs = st.executeQuery(sSQL); 
+             
+             while(rs.next()){
+                 registro[0]=rs.getString("ser_nombre");           
+                 registro[1]=rs.getString("ser_precio");
+                 registro[2]=rs.getString("ser_descripcion");
+                 status=rs.getString("ser_status");
+                 
+                 if(status.equals("A")){
+                     modelo.addRow(registro);
+                    /* NiveldeAcceso entrada= new NiveldeAcceso();
+                     Statement stmt=cn.createStatement();*/
+                     
+                 }tblservicio.setModel(modelo);
+                 
+             } 
+         }
+         catch (SQLException ex) {
+             JOptionPane.showMessageDialog(null, ex);
+        } 
+    }
     
     void inhabilitariconos(){
         icon1.setVisible(false);
@@ -36,7 +67,7 @@ public class Servicios extends javax.swing.JFrame {
     void CargarTablaServicio() {
         String[] registro= new String[3];
         String status="",sSQL ="";
-        
+        modelo=new DefaultTableModel(null,titulo);
         ConexionMySQL mysql =new ConexionMySQL();
         Connection cn=mysql.Conectar();
         
@@ -56,7 +87,7 @@ public class Servicios extends javax.swing.JFrame {
                      NiveldeAcceso entrada= new NiveldeAcceso();
                      Statement stmt=cn.createStatement();
                      int result=stmt.executeUpdate("INSERT INTO bitacora VALUES (null,'"+entrada.nombre_usuario+"', 'Registro y Consulta de Servicios', 'Consulto Servicios', now())");
-                 }
+                 }tblservicio.setModel(modelo);
              } 
          }
          catch (SQLException ex) {
@@ -460,6 +491,7 @@ public class Servicios extends javax.swing.JFrame {
         catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,ex);
         }
+         cargar();
     }//GEN-LAST:event_btnactualizarActionPerformed
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed

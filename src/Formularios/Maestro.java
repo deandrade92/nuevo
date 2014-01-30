@@ -201,7 +201,7 @@ public class Maestro extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void menuserviciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuserviciosActionPerformed
-        
+        new Servicios().setVisible(true);
     }//GEN-LAST:event_menuserviciosActionPerformed
 
     private void menuusuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuusuariosActionPerformed
