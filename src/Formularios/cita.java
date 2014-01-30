@@ -405,7 +405,7 @@ public class cita extends javax.swing.JFrame {
         mes=clrfechabuscar.getSelectedMonth();
         ano=clrfechabuscar.getSelectedYear();
         fecha=ano+"/"+mes+"/"+dia;
-
+        modelo=new DefaultTableModel(null,titulo);
         ConexionMySQL mysql =new ConexionMySQL();
         Connection cn=mysql.Conectar();
 
@@ -425,7 +425,7 @@ public class cita extends javax.swing.JFrame {
             NiveldeAcceso entrada= new NiveldeAcceso();
             Statement stmt=cn.createStatement();
             int result=stmt.executeUpdate("INSERT INTO bitacora VALUES (null,'"+entrada.nombre_usuario+"', 'Registro y Consulta de Usuario', 'Consulto Usuario CI: "+registro[0]+" ', now())");
-
+            tblcitas.setModel(modelo);
         }
         catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
