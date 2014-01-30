@@ -7,6 +7,7 @@ public class Maestro extends javax.swing.JFrame {
     
     public Maestro() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     

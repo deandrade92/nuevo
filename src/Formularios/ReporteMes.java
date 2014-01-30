@@ -15,6 +15,7 @@ public class ReporteMes extends javax.swing.JFrame {
      */
     public ReporteMes() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

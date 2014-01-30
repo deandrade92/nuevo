@@ -18,6 +18,7 @@ public class Paciente extends javax.swing.JFrame {
         initComponents();
         inhabilitariconos();
         inhabilitarcamposrepresentante();
+        setLocationRelativeTo(null);
     }
     
     void inhabilitarcamposrepresentante(){

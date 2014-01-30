@@ -17,6 +17,32 @@ public class Bitacora extends javax.swing.JFrame {
         initComponents();
          modelo=new DefaultTableModel(null,titulo);
         tblbitacora.setModel(modelo);
+        setLocationRelativeTo(null);
+        cargar();
+    }
+    public void cargar(){
+         String[] registro= new String[4];
+        String sSQL ="";
+        
+        ConexionMySQL mysql =new ConexionMySQL();
+        Connection cn=mysql.Conectar();
+        
+        sSQL="SELECT bit_nombreusuario, bit_modulo, bit_accion, bit_fechahora FROM bitacora";
+         try {
+             Statement st=cn.createStatement();
+             ResultSet rs = st.executeQuery(sSQL); 
+             
+             while(rs.next()){
+                 registro[0]=rs.getString("bit_nombreusuario");           
+                 registro[1]=rs.getString("bit_modulo");
+                 registro[2]=rs.getString("bit_accion");
+                 registro[3]=rs.getString("bit_fechahora");
+                 modelo.addRow(registro);
+             } 
+         }
+         catch (SQLException ex) {
+             JOptionPane.showMessageDialog(null, ex);
+        } 
     }
 
     
@@ -28,7 +54,8 @@ public class Bitacora extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblbitacora = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        txtbuscar = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bitacora");
@@ -52,14 +79,12 @@ public class Bitacora extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblbitacora);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/aceptar2.png"))); // NOI18N
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/aceptar3.png"))); // NOI18N
-        jButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/aceptar1.png"))); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
+        jLabel1.setText("Nombre de Usuario");
+
+        txtbuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtbuscarKeyReleased(evt);
             }
         });
 
@@ -72,15 +97,20 @@ public class Bitacora extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1127, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(27, 27, 27)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -118,15 +148,17 @@ public class Bitacora extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
+    private void txtbuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbuscarKeyReleased
+      
+         String[] titulo={"Nombre de Usuario","Modulo","Accion","Nivel"};
+        
         String[] registro= new String[4];
         String sSQL ="";
-        
+        modelo=new DefaultTableModel(null,titulo);
         ConexionMySQL mysql =new ConexionMySQL();
         Connection cn=mysql.Conectar();
         
-        sSQL="SELECT bit_nombreusuario, bit_modulo, bit_accion, bit_fechahora FROM bitacora";
+        sSQL="SELECT * FROM bitacora WHERE CONCAT(bit_nombreusuario,'',bit_modulo,'',bit_accion) LIKE '%"+txtbuscar.getText()+"%'";
          try {
              Statement st=cn.createStatement();
              ResultSet rs = st.executeQuery(sSQL); 
@@ -137,12 +169,47 @@ public class Bitacora extends javax.swing.JFrame {
                  registro[2]=rs.getString("bit_accion");
                  registro[3]=rs.getString("bit_fechahora");
                  modelo.addRow(registro);
-             } 
+             } tblbitacora.setModel(modelo);
          }
          catch (SQLException ex) {
              JOptionPane.showMessageDialog(null, ex);
         } 
-    }//GEN-LAST:event_jButton1ActionPerformed
+        
+        
+        
+        /*
+         modelo=new DefaultTableModel(null,titulo);
+        ConexionMySQL mysql =new ConexionMySQL();
+        Connection cn=mysql.Conectar();
+        
+        sSQL="SELECT * FROM servicio WHERE CONCAT (ser_nombre,'',servicio,'',ser_precio) LIKE '%"+Txtpalabara.getText()+"%'";
+         
+        try {
+             Statement st=cn.createStatement();
+             ResultSet rs = st.executeQuery(sSQL); 
+             
+             while(rs.next()){
+                 registro[0]=rs.getString("servicio");           
+                 registro[1]=rs.getString("ser_nombre");
+                 registro[2]=rs.getString("ser_precio");
+              modelo.addRow(registro);
+                /* if(status.equals("A")){
+                      modelo.addRow(registro);
+                 }
+                 else{
+                     JOptionPane.showMessageDialog(null,"El paciente no se encuentra registrado");
+                 }
+                 
+             }
+             tblbusqueda.setModel(modelo);
+                 
+             
+         }
+         catch (SQLException ex) {
+             JOptionPane.showMessageDialog(null, ex);
+        }  */
+        
+    }//GEN-LAST:event_txtbuscarKeyReleased
 
     /**
      * @param args the command line arguments
@@ -179,10 +246,11 @@ public class Bitacora extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblbitacora;
+    private javax.swing.JTextField txtbuscar;
     // End of variables declaration//GEN-END:variables
 }

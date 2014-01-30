@@ -4,6 +4,7 @@ public class ReporteDia extends javax.swing.JFrame {
 
     public ReporteDia() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")

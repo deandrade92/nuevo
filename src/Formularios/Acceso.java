@@ -15,6 +15,7 @@ public class Acceso extends javax.swing.JFrame {
     public Acceso() {
         initComponents();
         inhabilitar();
+        setLocationRelativeTo(null);
     }
     void limpiar(){
         txtusuario.setText("");

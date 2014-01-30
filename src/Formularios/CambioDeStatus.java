@@ -12,6 +12,7 @@ public class CambioDeStatus extends javax.swing.JFrame {
   
     public CambioDeStatus() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")

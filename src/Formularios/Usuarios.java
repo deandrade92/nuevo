@@ -21,6 +21,7 @@ public class Usuarios extends javax.swing.JFrame {
         modelo=new DefaultTableModel(null,titulo);
         tblusuario.setModel(modelo);
         inhabilitariconos();
+        setLocationRelativeTo(null);
     }
     
      void habilitarcedula(){

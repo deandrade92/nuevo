@@ -20,6 +20,7 @@ public class Citas extends javax.swing.JFrame {
         initComponents();
         modelo=new DefaultTableModel(null,titulo);
         tblcitas.setModel(modelo);
+        setLocationRelativeTo(null);
     }
 
      void limpiar(){
