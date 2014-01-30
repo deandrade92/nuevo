@@ -30,7 +30,6 @@ public class Maestro extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         menuusuarios = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
@@ -138,14 +137,6 @@ public class Maestro extends javax.swing.JFrame {
 
         jMenu5.setText("Reportes");
         jMenu5.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
-
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu5.add(jMenuItem1);
-
         jMenuBar1.add(jMenu5);
 
         jMenu6.setText("Sistema");
@@ -217,10 +208,6 @@ public class Maestro extends javax.swing.JFrame {
         new Usuarios().setVisible(true);
     }//GEN-LAST:event_menuusuariosActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        new cita().setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
     private void jMenu4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu4ActionPerformed
         
     }//GEN-LAST:event_jMenu4ActionPerformed
@@ -288,7 +275,6 @@ public class Maestro extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem5;
