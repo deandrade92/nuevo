@@ -1,6 +1,8 @@
 
 package Formularios;
 
+import javax.swing.JOptionPane;
+
 
 public class Maestro extends javax.swing.JFrame {
 
@@ -23,7 +25,7 @@ public class Maestro extends javax.swing.JFrame {
         menuregistroyconsulta = new javax.swing.JMenu();
         menupaciente = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        citas = new javax.swing.JMenuItem();
         menuservicios = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
@@ -33,13 +35,14 @@ public class Maestro extends javax.swing.JFrame {
         menuusuarios = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
         jMenu8 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
 
         jMenu2.setText("jMenu2");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Principal");
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setTitle("Menu Principal Del Sistema");
 
         jPanel1.setBackground(new java.awt.Color(0, 204, 204));
 
@@ -94,9 +97,14 @@ public class Maestro extends javax.swing.JFrame {
         });
         menuregistroyconsulta.add(jMenuItem2);
 
-        jMenuItem3.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
-        jMenuItem3.setText("Citas");
-        menuregistroyconsulta.add(jMenuItem3);
+        citas.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
+        citas.setText("Citas");
+        citas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                citasActionPerformed(evt);
+            }
+        });
+        menuregistroyconsulta.add(citas);
 
         menuservicios.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         menuservicios.setText("Servicios");
@@ -143,6 +151,7 @@ public class Maestro extends javax.swing.JFrame {
         jMenu6.setText("Sistema");
         jMenu6.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
 
+        menuusuarios.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         menuusuarios.setText("Registro y Consulta de Usuario");
         menuusuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,6 +168,21 @@ public class Maestro extends javax.swing.JFrame {
 
         jMenu8.setText("Salir");
         jMenu8.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
+        jMenu8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu8ActionPerformed(evt);
+            }
+        });
+
+        jMenuItem3.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
+        jMenuItem3.setText("Salir Del Sistema");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu8.add(jMenuItem3);
+
         jMenuBar1.add(jMenu8);
 
         setJMenuBar(jMenuBar1);
@@ -167,9 +191,7 @@ public class Maestro extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,7 +210,7 @@ public class Maestro extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void menuserviciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuserviciosActionPerformed
-        new Servicios().setVisible(true);
+        
     }//GEN-LAST:event_menuserviciosActionPerformed
 
     private void menuusuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuusuariosActionPerformed
@@ -196,7 +218,7 @@ public class Maestro extends javax.swing.JFrame {
     }//GEN-LAST:event_menuusuariosActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
+        new cita().setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenu4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu4ActionPerformed
@@ -206,6 +228,21 @@ public class Maestro extends javax.swing.JFrame {
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         new factura().setVisible(true);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void citasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_citasActionPerformed
+        new cita().setVisible(true);
+    }//GEN-LAST:event_citasActionPerformed
+
+    private void jMenu8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu8ActionPerformed
+        
+    }//GEN-LAST:event_jMenu8ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        int r= JOptionPane.showConfirmDialog(null, "Desea Salir Del Sistema");
+        if(r==0){
+            System.exit(0);
+        }
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -242,6 +279,7 @@ public class Maestro extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem citas;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu4;

@@ -1021,6 +1021,7 @@ public class Usuarios extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,ex);
         }
         }
+        cargar();
     }//GEN-LAST:event_btneliminarActionPerformed
 
     private void mneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mneditarActionPerformed
