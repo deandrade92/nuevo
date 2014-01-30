@@ -49,6 +49,38 @@ public class Usuarios extends javax.swing.JFrame {
         SimpleDateFormat formateador = new SimpleDateFormat("dd-MM-yyyy");
         return formateador.format(ahora);
     }
+    void CargarTablaUsuarios() {
+        String[] registro= new String[5];
+        String status="",sSQL ="";
+        
+        ConexionMySQL mysql =new ConexionMySQL();
+        Connection cn=mysql.Conectar();
+        
+        sSQL="SELECT usu_tipocedula, usu_cedula, usu_nombres, usu_apellidos, usu_id, usu_nivel, usu_status FROM usuario";
+        try {
+             Statement st=cn.createStatement();
+             ResultSet rs = st.executeQuery(sSQL); 
+             
+             while(rs.next()){
+                registro[0]=rs.getString("usu_tipocedula")+rs.getString("usu_cedula");           
+                 registro[1]=rs.getString("usu_nombres");
+                 registro[2]=rs.getString("usu_apellidos");
+                 registro[3]=rs.getString("usu_id");
+                 registro[4]=rs.getString("usu_nivel");
+                 status=rs.getString("usu_status");
+                 
+                 if(status.equals("A")){
+                     modelo.addRow(registro);
+                     NiveldeAcceso entrada= new NiveldeAcceso();
+                     Statement stmt=cn.createStatement();
+                     int result=stmt.executeUpdate("INSERT INTO bitacora VALUES (null,'"+entrada.nombre_usuario+"', 'Registro y Consulta de Usuarios', 'Consulto Usuarios', now())");
+                 }
+             } 
+         }
+         catch (SQLException ex) {
+             JOptionPane.showMessageDialog(null, ex);
+        }
+    }
 
     void limpiar(){
         habilitarcedula();
@@ -218,6 +250,11 @@ public class Usuarios extends javax.swing.JFrame {
         icon8 = new javax.swing.JLabel();
 
         mneditar.setText("Modificar");
+        mneditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mneditarActionPerformed(evt);
+            }
+        });
         jPopupMenu1.add(mneditar);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -796,7 +833,7 @@ public class Usuarios extends javax.swing.JFrame {
                     CargarTablaPacientePorApellido(apellido);
                 }
                 else{
-                    JOptionPane.showMessageDialog(null,"El tipo de busqueda que esta intendo realizar no esta permitida");
+                       CargarTablaUsuarios();
                 }
             }
         }               
@@ -951,6 +988,47 @@ public class Usuarios extends javax.swing.JFrame {
         }
         }
     }//GEN-LAST:event_btneliminarActionPerformed
+
+    private void mneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mneditarActionPerformed
+             String nombre="", precio="", descripcion="",  sSQL="";
+        
+        ConexionMySQL mysql =new ConexionMySQL();
+        Connection cn=mysql.Conectar();
+        int j=tblusuario.getSelectedRow();
+        if(j==-1) {
+        JOptionPane.showMessageDialog(null,"No se han seleccionado filas");
+        }
+        else{ 
+        modelo = (DefaultTableModel) tblusuario.getModel();
+        String id = (String) modelo.getValueAt(j,0);
+        sSQL="SELECT usu_tipocedula, usu_cedula, usu_nombres, usu_apellidos, usu_id, usu_contraseña, usu_nivel FROM usuario WHERE CONCAT(usu_tipocedula,'',usu_cedula)LIKE'"+id+"'";
+        }
+         try {
+             Statement st=cn.createStatement();
+             ResultSet rs = st.executeQuery(sSQL);
+             
+             while(rs.next()){
+                 String t=rs.getString("usu_tipocedula");
+                 String ced=rs.getString("usu_cedula");
+                 nombre=rs.getString("usu_nombres");            
+                 precio=rs.getString("usu_apellidos");
+                 descripcion=rs.getString("usu_id");
+                 String ct=rs.getString("usu_contraseña");
+                 String n=rs.getString("usu_nivel");
+                 cbocedula.setSelectedItem(t);
+                 txtcedula.setText(ced);
+                 txtnombres.setText(nombre);
+                 txtapellidos.setText(precio);
+                 txtid.setText(descripcion);
+                 passcontraseña.setText(ct);
+                 passrepitacontraseña.setText(ct);
+                 cboniveldeacceso.setSelectedItem(n);
+             }
+         }
+         catch (SQLException ex) {
+             JOptionPane.showMessageDialog(null, ex);
+        }
+    }//GEN-LAST:event_mneditarActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
