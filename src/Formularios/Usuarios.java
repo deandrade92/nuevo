@@ -22,6 +22,7 @@ public class Usuarios extends javax.swing.JFrame {
         tblusuario.setModel(modelo);
         inhabilitariconos();
         setLocationRelativeTo(null);
+        cargar();
     }
     
      void habilitarcedula(){
@@ -93,6 +94,38 @@ public class Usuarios extends javax.swing.JFrame {
         passcontraseña.setText("");
         passrepitacontraseña.setText("");
         cboniveldeacceso.setSelectedItem("Seleccione");
+    }
+    void cargar(){
+        String[] registro= new String[5];
+        String status="",sSQL ="";
+        modelo=new DefaultTableModel(null,titulo);
+        ConexionMySQL mysql =new ConexionMySQL();
+        Connection cn=mysql.Conectar();
+        
+        sSQL="SELECT usu_tipocedula, usu_cedula, usu_nombres, usu_apellidos, usu_id, usu_nivel, usu_status FROM usuario";
+        try {
+             Statement st=cn.createStatement();
+             ResultSet rs = st.executeQuery(sSQL); 
+             
+             while(rs.next()){
+                registro[0]=rs.getString("usu_tipocedula")+rs.getString("usu_cedula");           
+                 registro[1]=rs.getString("usu_nombres");
+                 registro[2]=rs.getString("usu_apellidos");
+                 registro[3]=rs.getString("usu_id");
+                 registro[4]=rs.getString("usu_nivel");
+                 status=rs.getString("usu_status");
+                 
+                 if(status.equals("A")){
+                     modelo.addRow(registro);
+                     NiveldeAcceso entrada= new NiveldeAcceso();
+                     Statement stmt=cn.createStatement();
+                     
+                 }tblusuario.setModel(modelo);
+             } 
+         }
+         catch (SQLException ex) {
+             JOptionPane.showMessageDialog(null, ex);
+        }
     }
     
     void CargarTablaPacientePorCedula(String cedula) {
@@ -871,6 +904,7 @@ public class Usuarios extends javax.swing.JFrame {
         catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,ex);
         }
+        cargar();
     }//GEN-LAST:event_btnactualizarActionPerformed
 
     private void btncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelarActionPerformed
