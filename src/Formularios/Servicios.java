@@ -10,7 +10,7 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-public class Servicios extends javax.swing.JFrame {
+public class Servicios extends javax.swing.JInternalFrame {
     String[] titulo={"Nombre","Precio","Descripcion"};
     DefaultTableModel modelo;
 
@@ -19,7 +19,7 @@ public class Servicios extends javax.swing.JFrame {
         modelo=new DefaultTableModel(null,titulo);
         tblservicio.setModel(modelo);
         inhabilitariconos();
-        setLocationRelativeTo(null);
+        //setLocationRelativeTo(null);
     }
     void cargar(){
         String[] registro= new String[3];
@@ -171,8 +171,25 @@ public class Servicios extends javax.swing.JFrame {
         });
         jPopupMenu1.add(mneditar);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Registro y Consulta de servicios");
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameClosed(evt);
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(0, 204, 204));
 
@@ -626,6 +643,11 @@ public class Servicios extends javax.swing.JFrame {
              JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_mneditarActionPerformed
+
+    private void formInternalFrameClosed(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosed
+        // TODO add your handling code here:
+        Maestro.cerrarVentana(this);
+    }//GEN-LAST:event_formInternalFrameClosed
 
     
     public static void main(String args[]) {

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="79a47394-f132-4475-b4c3-9f5ec2b1eb37">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="cedula" class="java.lang.String">
+		<defaultValueExpression><![CDATA[8741965]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     ventas.`ventas` AS ventas_ventas,
+     ventas.`ven_tipocecula` AS ventas_ven_tipocecula,
+     ventas.`ven_cedula` AS ventas_ven_cedula,
+     ventas.`ven_fecha` AS ventas_ven_fecha,
+     ventas.`ven_tfactura` AS ventas_ven_tfactura
+FROM
+     `ventas` ventas
+WHERE
+     ventas.`ven_cedula` = $P{cedula}]]>
+	</queryString>
+	<field name="ventas_ventas" class="java.lang.Integer"/>
+	<field name="ventas_ven_tipocecula" class="java.lang.String"/>
+	<field name="ventas_ven_cedula" class="java.lang.String"/>
+	<field name="ventas_ven_fecha" class="java.lang.String"/>
+	<field name="ventas_ven_tfactura" class="java.lang.Float"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="340" y="2" width="100" height="20" uuid="1b5cbfa4-ee23-4530-89b1-8570e1d07dc9"/>
+				<text><![CDATA[ventas_ven_fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="426" y="2" width="100" height="20" uuid="292441eb-4469-42d1-b17c-b9a5b7e73489"/>
+				<text><![CDATA[ventas_ven_tfactura]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="185" y="23" width="100" height="20" uuid="c793fdd9-441a-44f0-9367-22ae65d27d02"/>
+				<textFieldExpression><![CDATA[$F{ventas_ven_cedula}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="40" y="30" width="100" height="20" uuid="5693f541-5e24-4d19-b188-90a747bcbf15"/>
+				<textFieldExpression><![CDATA[$F{ventas_ventas}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="63" y="70" width="100" height="20" uuid="a1fe7b2c-ea61-4e9a-9f96-bc137965bf37"/>
+				<text><![CDATA[ventas_ventas]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="340" y="28" width="100" height="20" uuid="572de397-4341-4a56-a178-b39c97c8aae2"/>
+				<textFieldExpression><![CDATA[$F{ventas_ven_fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="426" y="89" width="100" height="20" uuid="29bfd97f-b669-4aaf-8e0b-6ee3a96d0720"/>
+				<textFieldExpression><![CDATA[$F{ventas_ven_tfactura}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

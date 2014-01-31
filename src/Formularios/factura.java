@@ -16,7 +16,7 @@ import java.text.SimpleDateFormat;
 
 
 
-public class factura extends javax.swing.JFrame {
+public class factura extends javax.swing.JInternalFrame {
     DefaultTableModel modelo;
     private Object message="¿Esta seguro de registrar esta informacion?, Esta informacion no es modificable";
     
@@ -24,7 +24,7 @@ public class factura extends javax.swing.JFrame {
         initComponents();
         btnlimpiar.setEnabled(false);
         cargartabla();
-        setLocationRelativeTo(null);
+        //setLocationRelativeTo(null);
         SimpleDateFormat formateador = new SimpleDateFormat("dd-MM-yyyy");
         Date fechaDate = new Date();
         String fecha=formateador.format(fechaDate);
@@ -92,6 +92,23 @@ public class factura extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Registro De Factura");
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameClosed(evt);
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(0, 204, 204));
 
@@ -441,7 +458,7 @@ public class factura extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 4, Short.MAX_VALUE))
         );
 
         pack();
@@ -600,6 +617,11 @@ public class factura extends javax.swing.JFrame {
     private void txtapellidoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtapellidoMouseClicked
          new Busquedapac().setVisible(true);
     }//GEN-LAST:event_txtapellidoMouseClicked
+
+    private void formInternalFrameClosed(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosed
+        // TODO add your handling code here:
+        Maestro.cerrarVentana(this);
+    }//GEN-LAST:event_formInternalFrameClosed
 
     /**
      * @param args the command line arguments

@@ -1,6 +1,7 @@
 
 package Formularios;
 import BaseDeDatos.ConexionMySQL;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,7 +10,7 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-public class cita extends javax.swing.JFrame {
+public class cita extends javax.swing.JInternalFrame {
  
     String[] titulo={"Cedula","Nombres","Apellidos","Id","Nivel"};
     DefaultTableModel modelo;
@@ -17,9 +18,10 @@ public class cita extends javax.swing.JFrame {
      * Creates new form cita
      */
     public cita() {
-        initComponents(); modelo=new DefaultTableModel(null,titulo);
+        initComponents(); 
+        modelo=new DefaultTableModel(null,titulo);
         tblcitas.setModel(modelo);
-        setLocationRelativeTo(null);
+        //setLocationRelativeTo(null);
         
     }
      void limpiar(){
@@ -35,17 +37,15 @@ public class cita extends javax.swing.JFrame {
 
         jPopupMenu1 = new javax.swing.JPopupMenu();
         mnucargar = new javax.swing.JMenuItem();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         btnguardar = new javax.swing.JButton();
         btnlimpiar = new javax.swing.JButton();
         btnbuscar = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btneliminar = new javax.swing.JButton();
         btnactualizar = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        btnsalir = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         cbocedula = new javax.swing.JComboBox();
         txtcedula = new javax.swing.JTextField();
@@ -59,7 +59,7 @@ public class cita extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         clrfechabuscar = new org.gui.JCalendarCombo();
 
-        mnucargar.setText("jMenuItem1");
+        mnucargar.setText("Modificar");
         mnucargar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnucargarActionPerformed(evt);
@@ -67,11 +67,7 @@ public class cita extends javax.swing.JFrame {
         });
         jPopupMenu1.add(mnucargar);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 204, 204));
 
@@ -120,13 +116,18 @@ public class cita extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/borrar2.png"))); // NOI18N
-        jButton4.setToolTipText("Eliminar");
-        jButton4.setBorderPainted(false);
-        jButton4.setContentAreaFilled(false);
-        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton4.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/borrar3.png"))); // NOI18N
-        jButton4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/borrar1.png"))); // NOI18N
+        btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/borrar2.png"))); // NOI18N
+        btneliminar.setToolTipText("Eliminar");
+        btneliminar.setBorderPainted(false);
+        btneliminar.setContentAreaFilled(false);
+        btneliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btneliminar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/borrar3.png"))); // NOI18N
+        btneliminar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/borrar1.png"))); // NOI18N
+        btneliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btneliminarActionPerformed(evt);
+            }
+        });
 
         btnactualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/limpiar2.png"))); // NOI18N
         btnactualizar.setToolTipText("Actualizar");
@@ -141,16 +142,16 @@ public class cita extends javax.swing.JFrame {
             }
         });
 
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/cancelar2.png"))); // NOI18N
-        jButton6.setToolTipText("Salir");
-        jButton6.setBorderPainted(false);
-        jButton6.setContentAreaFilled(false);
-        jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton6.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/cancelar3.png"))); // NOI18N
-        jButton6.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/cancelar1.png"))); // NOI18N
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        btnsalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/cancelar2.png"))); // NOI18N
+        btnsalir.setToolTipText("Salir");
+        btnsalir.setBorderPainted(false);
+        btnsalir.setContentAreaFilled(false);
+        btnsalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnsalir.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/cancelar3.png"))); // NOI18N
+        btnsalir.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/cancelar1.png"))); // NOI18N
+        btnsalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                btnsalirActionPerformed(evt);
             }
         });
 
@@ -168,9 +169,9 @@ public class cita extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnactualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -179,8 +180,8 @@ public class cita extends javax.swing.JFrame {
             .addComponent(btnlimpiar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnbuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnactualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
+            .addComponent(btneliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnsalir, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
         );
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -290,13 +291,13 @@ public class cita extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtcedula, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtnombres, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtapellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtnombres, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(clrfechacita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtapellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
@@ -364,8 +365,8 @@ public class cita extends javax.swing.JFrame {
         dia=clrfechacita.getSelectedDay();
         mes=clrfechacita.getSelectedMonth();
         ano=clrfechacita.getSelectedYear();
-        fecha=ano+"/"+mes+"/"+dia;
-
+        fecha=ano+"/"+mes+"/"+dia; 
+        
         ConexionMySQL mysql = new ConexionMySQL();
         Connection cn = mysql.Conectar();
 
@@ -385,7 +386,7 @@ public class cita extends javax.swing.JFrame {
                 limpiar();
                 NiveldeAcceso entrada= new NiveldeAcceso();
                 Statement stmt=cn.createStatement();
-                int result=stmt.executeUpdate("INSERT INTO bitacora VALUES (null,'"+entrada.nombre_usuario+"', 'Registro y Consulta de Pacientes', 'Guardo paciente CI: "+cedula+"', now())");
+                int result=stmt.executeUpdate("INSERT INTO bitacora VALUES (null,'"+entrada.nombre_usuario+"', 'Registro y Consulta de Citas', 'Guardo Cita CI: "+cedula+"', now())");
             }
         }
         catch(SQLException ex){
@@ -456,13 +457,59 @@ public class cita extends javax.swing.JFrame {
         new BusquedaPac2().setVisible(true);
     }//GEN-LAST:event_txtapellidosActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
         this.dispose();
         
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_btnsalirActionPerformed
 
     private void btnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarActionPerformed
-        // TODO add your handling code here:
+       String ced1="", ced2="", cedula="", nombres="", apellidos="",dia="", mes="", ano="", fecha="", sSQL="";
+        
+        ced1=cbocedula.getSelectedItem().toString();
+        ced2=txtcedula.getText();
+        cedula=ced1+ced2;
+        dia=clrfechabuscar.getSelectedDay();
+        mes=clrfechabuscar.getSelectedMonth();
+        ano=clrfechabuscar.getSelectedYear();
+        fecha=ano+"/"+mes+"/"+dia;
+        
+        ConexionMySQL mysql=new ConexionMySQL();
+        Connection cn = mysql.Conectar();
+        
+        sSQL="UPDATE cita SET  cit_fecha='"+fecha+"' WHERE CONCAT (cit_tipocedula, cit_cedula) = '"+cedula+"'";
+        
+        try {
+            PreparedStatement pst=cn.prepareStatement(sSQL);
+            int n=pst.executeUpdate();
+            if(n>0){
+                 JOptionPane.showMessageDialog(null,"Actualizacion Satisfactoria");
+                 limpiar();
+                 NiveldeAcceso entrada= new NiveldeAcceso();
+                 Statement stmt=cn.createStatement();
+                 int result=stmt.executeUpdate("INSERT INTO bitacora VALUES (null,'"+entrada.nombre_usuario+"', 'Registro y Consulta de Usuario', 'Actualizo Usuario CI: "+cedula+" ', now())");
+            }      
+        } 
+        catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,ex);
+        }
+        //cargar();
+    }                                             
+
+    private void btncancelarActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        this.dispose();
+    }                                           
+
+    private void txtcedulaKeyTyped(java.awt.event.KeyEvent evt) {                                   
+         char caracter = evt.getKeyChar();//Validacion del campo cedula
+        if (caracter >= '0' && caracter <= '9' || caracter == 8 || caracter == KeyEvent.VK_BACK_SPACE || caracter == KeyEvent.VK_CAPS_LOCK || caracter == KeyEvent.VK_SHIFT) {
+        } 
+        else {
+            evt.consume();
+        }
+        if (txtcedula.getText().length() >= 8){
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "Solo puede ingresar 8 numeros", "Informacion", 1);
+        }
     }//GEN-LAST:event_btnactualizarActionPerformed
 
     private void mnucargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnucargarActionPerformed
@@ -498,13 +545,45 @@ public class cita extends javax.swing.JFrame {
                  txtcedula.setText(ced2);
                  txtnombres.setText(nombres);
                  txtapellidos.setText(apellidos);
-                 clrfechacita.setSelectedDate(Integer.parseInt(ano), Integer.parseInt(mes), Integer.parseInt(dia));
+                 clrfechacita.setSelectedDate(Integer.parseInt(ano), Integer.parseInt(mes), Integer.parseInt(dia));//setSelectedDate(Integer.parseInt(dia), Integer.parseInt(mes), Integer.parseInt(ano) );
              }
          }
          catch (SQLException ex) {
              JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_mnucargarActionPerformed
+
+    private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
+        String sSQL="";
+        
+        ConexionMySQL mysql =new ConexionMySQL();
+        Connection cn=mysql.Conectar();
+        
+        int j=tblcitas.getSelectedRow();
+        if(j==-1) {
+        JOptionPane.showMessageDialog(null,"No se han seleccionado filas");
+        }
+        else{ 
+        modelo = (DefaultTableModel) tblcitas.getModel();
+        String id = (String) modelo.getValueAt(j,0);
+            
+        sSQL="DELETE FROM cita WHERE CONCAT (usu_tipocedula, usu_cedula)='"+id+"'";
+        try {
+            PreparedStatement pst=cn.prepareStatement(sSQL);
+            int n=pst.executeUpdate();
+            if(n>0){
+                 JOptionPane.showMessageDialog(null,"Cita eliminada Satisfactoriamente");
+                 NiveldeAcceso entrada= new NiveldeAcceso();
+                 Statement stmt=cn.createStatement();
+                 int result=stmt.executeUpdate("INSERT INTO bitacora VALUES (null,'"+entrada.nombre_usuario+"', 'Registro y Consulta de Citas', 'Elimino Cita CI: "+id+" ', now())");
+            }      
+        } 
+        catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,ex);
+        }
+        }
+        
+    }//GEN-LAST:event_btneliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -543,13 +622,13 @@ public class cita extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnactualizar;
     private javax.swing.JButton btnbuscar;
+    private javax.swing.JButton btneliminar;
     private javax.swing.JButton btnguardar;
     private javax.swing.JButton btnlimpiar;
+    private javax.swing.JButton btnsalir;
     public static javax.swing.JComboBox cbocedula;
     private org.gui.JCalendarCombo clrfechabuscar;
     private org.gui.JCalendarCombo clrfechacita;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -559,8 +638,6 @@ public class cita extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JMenuItem mnucargar;
     private javax.swing.JTable tblcitas;
     public static javax.swing.JTextField txtapellidos;

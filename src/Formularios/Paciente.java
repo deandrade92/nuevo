@@ -11,14 +11,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
 
-public class Paciente extends javax.swing.JFrame {
+public class Paciente extends javax.swing.JInternalFrame {
     NiveldeAcceso entrada= new NiveldeAcceso();
 
     public Paciente(){
         initComponents();
         inhabilitariconos();
         inhabilitarcamposrepresentante();
-        setLocationRelativeTo(null);
+        //setLocationRelativeTo(null);
     }
     
     void inhabilitarcamposrepresentante(){
@@ -146,8 +146,25 @@ public class Paciente extends javax.swing.JFrame {
             }
         });
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Registro y Consulta De Pacientes");
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameClosed(evt);
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 formComponentShown(evt);
@@ -726,7 +743,7 @@ public class Paciente extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -965,7 +982,7 @@ public class Paciente extends javax.swing.JFrame {
         dia=clrfecha.getSelectedDay();
         mes=clrfecha.getSelectedMonth();
         ano=clrfecha.getSelectedYear();
-        fecha=ano+"/"+mes+"/"+dia;    
+        fecha=ano+"-"+mes+"-"+dia;    
         edad=txtedad.getText();
         nombrespm=txtnombrespm.getText();
         apellidospm=txtapellidos.getText();
@@ -1352,6 +1369,11 @@ public class Paciente extends javax.swing.JFrame {
     private void icon2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon2MouseEntered
         JOptionPane.showMessageDialog(null,"El campo CEDULA esta vacio", "informacion", 2);
     }//GEN-LAST:event_icon2MouseEntered
+
+    private void formInternalFrameClosed(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosed
+        // TODO add your handling code here:
+        Maestro.cerrarVentana(this);
+    }//GEN-LAST:event_formInternalFrameClosed
     
     public static void main(String args[]){
         /* Set the Nimbus look and feel */

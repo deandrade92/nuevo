@@ -1,11 +1,38 @@
 package Formularios;
 
-public class ReporteDia extends javax.swing.JFrame {
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
+
+public class ReporteDia extends javax.swing.JInternalFrame {
 
     public ReporteDia() {
         initComponents();
-        setLocationRelativeTo(null);
+        //setLocationRelativeTo(null);
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/centroodontologico", "root", "");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ReporteDia.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ReporteDia.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
+    Connection con;
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -18,8 +45,25 @@ public class ReporteDia extends javax.swing.JFrame {
         btnaceptar = new javax.swing.JButton();
         btnsalir = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Reporte Diario");
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameClosed(evt);
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(0, 204, 204));
 
@@ -115,10 +159,47 @@ public class ReporteDia extends javax.swing.JFrame {
         String dia = "", mes = "", ano = "", fecha = "";
 
         dia = clrfecha.getSelectedDay();
-        mes = clrfecha.getSelectedMonth();
+        mes =nroMes(Integer.valueOf(clrfecha.getSelectedMonth())) ;
+        
         ano = clrfecha.getSelectedYear();
-        fecha = ano + "/" + mes + "/" + dia;
+        fecha = ano + "-" + mes + "-" + dia;
+        
+        try {
+                    String ruta="\\src\\Reportes\\ReporteDiario.jrxml";
+            //cargamos el reporte
+            JasperDesign jasperDesign = JRXmlLoader.load(System.getProperty("user.dir")+ruta);
+            //compilamos el reporte
+            JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
+           //leemos la cedula
+            
+            //creamos el mapa de parametros
+            Map parametros= new HashMap();
+            // configuramos los parametros
+            JOptionPane.showMessageDialog(null,fecha);
+            parametros.put("fechadia", fecha);
+            //Pasamos el reporte con los parametros
+            JasperPrint informe= JasperFillManager.fillReport(jasperReport, parametros,con);
+            //Pasamos el reporte con los parametros
+            //JasperViewer ventanavisor =new JasperViewer(informe);
+            
+            //ventanavisor.setTitle("reporte");
+            //ventanavisor.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            //visualizar sin que se cierre la ventana
+            JasperViewer.viewReport(informe,false,Locale.getDefault());
+
+            //ventanavisor.setVisible(true);
+            //ventanavisor.setDefaultCloseOperation(WIDTH);
+        
+        
+        } catch (Exception ex) {
+            Logger.getLogger(ReporteDia.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnaceptarActionPerformed
+
+    private void formInternalFrameClosed(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosed
+        // TODO add your handling code here:
+        Maestro.cerrarVentana(this);
+    }//GEN-LAST:event_formInternalFrameClosed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -151,6 +232,17 @@ public class ReporteDia extends javax.swing.JFrame {
             }
         });
     }
+    private String nroMes(int nrohist){
+       String numFormateado="",tempo="";
+       int ceros=0;
+       tempo=String.valueOf(nrohist);
+       ceros=2-nrohist;
+       for(int i=0;i<ceros;i++)
+           numFormateado+="0";
+       numFormateado+=tempo;
+   
+       return numFormateado;
+   }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnaceptar;
     private javax.swing.JButton btnsalir;

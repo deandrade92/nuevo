@@ -12,7 +12,7 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-public class Usuarios extends javax.swing.JFrame {
+public class Usuarios extends javax.swing.JInternalFrame {
     String[] titulo={"Cedula","Nombres","Apellidos","Id","Nivel"};
     DefaultTableModel modelo;
 
@@ -21,7 +21,7 @@ public class Usuarios extends javax.swing.JFrame {
         modelo=new DefaultTableModel(null,titulo);
         tblusuario.setModel(modelo);
         inhabilitariconos();
-        setLocationRelativeTo(null);
+        //setLocationRelativeTo(null);
         cargar();
     }
     
@@ -290,8 +290,25 @@ public class Usuarios extends javax.swing.JFrame {
         });
         jPopupMenu1.add(mneditar);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Registro y Consulta de Usuarios");
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameClosed(evt);
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(0, 204, 204));
         jPanel1.setForeground(new java.awt.Color(0, 204, 204));
@@ -724,7 +741,7 @@ public class Usuarios extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1, Short.MAX_VALUE))
+                .addGap(0, 5, Short.MAX_VALUE))
         );
 
         pack();
@@ -1064,6 +1081,11 @@ public class Usuarios extends javax.swing.JFrame {
              JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_mneditarActionPerformed
+
+    private void formInternalFrameClosed(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosed
+        // TODO add your handling code here:
+        Maestro.cerrarVentana(this);
+    }//GEN-LAST:event_formInternalFrameClosed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
