@@ -1,4 +1,3 @@
-
 package Formularios;
 
 import java.beans.PropertyVetoException;
@@ -7,17 +6,20 @@ import java.util.logging.Logger;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 
-
 public class Maestro extends javax.swing.JFrame {
 
-    
-    static boolean[] estVentanas=new boolean[50];
-    static String[] nomVentanas= new String[50];
-    static int nroVentanas=0;
-    
+    static boolean[] estVentanas = new boolean[50];
+    static String[] nomVentanas = new String[50];
+    static int nroVentanas = 0;
+    public int nivelU=Acceso.getNivelU();
+
     public Maestro() {
         initComponents();
         setLocationRelativeTo(null);
+
+
+        Deshabilitar();
+        Habilitar();
         limpiar();
         addWindowListener(new java.awt.event.WindowAdapter() {//Se agrga para controlar el evento de cerral el sistema
             @Override
@@ -27,7 +29,6 @@ public class Maestro extends javax.swing.JFrame {
         });
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -43,10 +44,12 @@ public class Maestro extends javax.swing.JFrame {
         menucitas = new javax.swing.JMenuItem();
         menuservicios = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        menufacturacion = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu6 = new javax.swing.JMenu();
+        menureportedia = new javax.swing.JMenuItem();
+        menureportemes = new javax.swing.JMenuItem();
+        menureportecitas = new javax.swing.JMenuItem();
+        mnuSistema = new javax.swing.JMenu();
         menuusuarios = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
         jMenu8 = new javax.swing.JMenu();
@@ -121,32 +124,48 @@ public class Maestro extends javax.swing.JFrame {
             }
         });
 
-        jMenuItem5.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
-        jMenuItem5.setText("Faturacion");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+        menufacturacion.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
+        menufacturacion.setText("Faturacion");
+        menufacturacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
+                menufacturacionActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenuItem5);
+        jMenu4.add(menufacturacion);
 
         jMenuBar1.add(jMenu4);
 
         jMenu5.setText("Reportes");
         jMenu5.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
 
-        jMenuItem1.setText("Reporte");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        menureportedia.setText("Reporte de Transacciones Diarias");
+        menureportedia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                menureportediaActionPerformed(evt);
             }
         });
-        jMenu5.add(jMenuItem1);
+        jMenu5.add(menureportedia);
+
+        menureportemes.setText("Reporte De Transacciones por Mes");
+        menureportemes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menureportemesActionPerformed(evt);
+            }
+        });
+        jMenu5.add(menureportemes);
+
+        menureportecitas.setText("Reporte De Citas Diarias");
+        menureportecitas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menureportecitasActionPerformed(evt);
+            }
+        });
+        jMenu5.add(menureportecitas);
 
         jMenuBar1.add(jMenu5);
 
-        jMenu6.setText("Sistema");
-        jMenu6.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
+        mnuSistema.setText("Sistema");
+        mnuSistema.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
 
         menuusuarios.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         menuusuarios.setText("Registro y Consulta de Usuario");
@@ -155,9 +174,9 @@ public class Maestro extends javax.swing.JFrame {
                 menuusuariosActionPerformed(evt);
             }
         });
-        jMenu6.add(menuusuarios);
+        mnuSistema.add(menuusuarios);
 
-        jMenuBar1.add(jMenu6);
+        jMenuBar1.add(mnuSistema);
 
         jMenu7.setText("Ayuda");
         jMenu7.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
@@ -172,7 +191,7 @@ public class Maestro extends javax.swing.JFrame {
         });
 
         jMenuItem3.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
-        jMenuItem3.setText("Salir Del Sistema");
+        jMenuItem3.setText("Cerrar Sesion...");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem3ActionPerformed(evt);
@@ -205,28 +224,28 @@ public class Maestro extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
-        Historial histo= new Historial();
+        Historial histo = new Historial();
         mostarUnavez(desktopPane, histo);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void menuserviciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuserviciosActionPerformed
-        //new Servicios().setVisible(true);
+        //new Servicios().setVisible(true);04245219827
         mostarUnavez(desktopPane, new Servicios());
     }//GEN-LAST:event_menuserviciosActionPerformed
 
     private void menuusuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuusuariosActionPerformed
-      //  new Usuarios().setVisible(true);
+        //  new Usuarios().setVisible(true);
         mostarUnavez(desktopPane, new Usuarios());
     }//GEN-LAST:event_menuusuariosActionPerformed
 
     private void jMenu4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu4ActionPerformed
-        
+
     }//GEN-LAST:event_jMenu4ActionPerformed
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+    private void menufacturacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menufacturacionActionPerformed
         //new factura().setVisible(true);
         mostarUnavez(desktopPane, new factura());
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
+    }//GEN-LAST:event_menufacturacionActionPerformed
 
     private void menucitasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menucitasActionPerformed
         //new cita().setVisible(true);
@@ -234,20 +253,33 @@ public class Maestro extends javax.swing.JFrame {
     }//GEN-LAST:event_menucitasActionPerformed
 
     private void jMenu8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu8ActionPerformed
-        
+
     }//GEN-LAST:event_jMenu8ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        int r= JOptionPane.showConfirmDialog(null, "Desea Salir Del Sistema");
-        if(r==0){
-            System.exit(0);
+        int opc=JOptionPane.showOptionDialog(this, "Cambiar de Usuario", "¿Desea cambiar de Usuario?", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[] { "Si", "No"}, "Si");
+                
+      //          (this, "¿Desea cambiar de Usuario?");
+        if (JOptionPane.OK_OPTION == opc){
+   this.dispose();
+   Acceso FrmAcceso = new Acceso();
+        FrmAcceso.setLocationRelativeTo(null);
+        FrmAcceso.setVisible(true);
         }
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void menureportediaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menureportediaActionPerformed
         // TODO add your handling code here:
         mostarUnavez(desktopPane, new ReporteDia());
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_menureportediaActionPerformed
+
+    private void menureportecitasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menureportecitasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menureportecitasActionPerformed
+
+    private void menureportemesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menureportemesActionPerformed
+       // mostarUnavez(desktopPane, new ReporteMes());
+    }//GEN-LAST:event_menureportemesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -283,50 +315,49 @@ public class Maestro extends javax.swing.JFrame {
             }
         });
     }
-    
-       static public String nombreClass(Object ventana){
+
+    static public String nombreClass(Object ventana) {
         return ventana.getClass().getName();
     }
-    public static boolean estaAgregada(Object ventana){
-        for (int i = 0; i < nroVentanas; i++) {
-           // try{
-            if(nomVentanas[i].equals(nombreClass(ventana))){
 
-                return true; 
+    public static boolean estaAgregada(Object ventana) {
+        for (int i = 0; i < nroVentanas; i++) {
+            // try{
+            if (nomVentanas[i].equals(nombreClass(ventana))) {
+
+                return true;
             }
           //  }catch(Exception ex){
-                
-           // }
-              
+
+            // }
         }
-        
-        
-    return false;
+
+        return false;
     }
-        public static boolean estaActiva(Object ventana){
+
+    public static boolean estaActiva(Object ventana) {
         for (int i = 0; i < nroVentanas; i++) {
-    //        try{
-                if(nomVentanas[i].equals(nombreClass(ventana))&&estVentanas[i]==true)
-                return true;  
-            
-            
+            //        try{
+            if (nomVentanas[i].equals(nombreClass(ventana)) && estVentanas[i] == true) {
+                return true;
+            }
+
          //   }catch(Exception ex){
-                
-          //  }
-               
+            //  }
         }
-        
-        
-        
-    return false;
+
+        return false;
     }
-    private static int obtenerNorVent(Object ventana){
+
+    private static int obtenerNorVent(Object ventana) {
         for (int i = 0; i < nroVentanas; i++) {
-            if(nomVentanas[i].equals(nombreClass(ventana)))
-                return i;     
+            if (nomVentanas[i].equals(nombreClass(ventana))) {
+                return i;
+            }
         }
         return -1;
     }
+
     private static void añadirNomVent(Object ventana) {
         if (nroVentanas == 0) {
             nomVentanas[0] = nombreClass(ventana);
@@ -348,14 +379,15 @@ public class Maestro extends javax.swing.JFrame {
         }
 
     }
-    public static void mostarUnavez( javax.swing.JDesktopPane escritorio, JInternalFrame ventana){
+
+    public static void mostarUnavez(javax.swing.JDesktopPane escritorio, JInternalFrame ventana) {
         JInternalFrame[] ventanas;
         //ventana= new JInternalFrame();
         escritorio.add(ventana);
         ventanas = escritorio.getAllFrames();
         añadirNomVent(ventana);
         //if (v==true) {
-            if(estaActiva(ventana)){
+        if (estaActiva(ventana)) {
             for (int i = 0; i < ventanas.length; i++) {
                 if (nombreClass(ventanas[i]).equals(nombreClass(ventana))) {
                     if (ventana.isMaximum()) {
@@ -378,45 +410,69 @@ public class Maestro extends javax.swing.JFrame {
             }
             escritorio.remove(ventana);
         } else {
-            estVentanas[obtenerNorVent(ventana)]=true;
+            estVentanas[obtenerNorVent(ventana)] = true;
             ventana.show();
         }
     }
-    public static void cerrarVentana(JInternalFrame ventana){
-        estVentanas[obtenerNorVent(ventana)]=false;    
+
+    public static void cerrarVentana(JInternalFrame ventana) {
+        estVentanas[obtenerNorVent(ventana)] = false;
     }
-    private void limpiar(){
-        for(int i=0;i < 50;i++)
-            nomVentanas[i]="";
-        for(int i=0;i < 50;i++)
-            estVentanas[i]=false;
+
+    private void limpiar() {
+        for (int i = 0; i < 50; i++) {
+            nomVentanas[i] = "";
+        }
+        for (int i = 0; i < 50; i++) {
+            estVentanas[i] = false;
+        }
     }
+
     private void close() {//pide comfirmacion al salir del sistema
         if (JOptionPane.showConfirmDialog(rootPane, "¿Desea realmente salir del sistema?",
                 "Salir del sistema", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
             System.exit(0);
         }
     }
-    
+    private void Habilitar(){
+        
+        if(nivelU==0){
+    mnuSistema.setEnabled(true);
+    menuusuarios.setEnabled(true);
+    //mnuMantenimiento.setEnabled(true);
+        }
+    }
+    private void Deshabilitar(){
+        
+        if(nivelU==1){
+    mnuSistema.setEnabled(false);
+    menuusuarios.setEnabled(false);
+    //JOptionPane.showMessageDialog(null, nivelU);
+    //mnuMantenimiento.setEnabled(false);
+        }
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JMenuItem menucitas;
+    private javax.swing.JMenuItem menufacturacion;
     private javax.swing.JMenuItem menupaciente;
     private javax.swing.JMenu menuregistroyconsulta;
+    private javax.swing.JMenuItem menureportecitas;
+    private javax.swing.JMenuItem menureportedia;
+    private javax.swing.JMenuItem menureportemes;
     private javax.swing.JMenuItem menuservicios;
     private javax.swing.JMenuItem menuusuarios;
+    private javax.swing.JMenu mnuSistema;
     // End of variables declaration//GEN-END:variables
 }

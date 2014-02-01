@@ -42,6 +42,7 @@ public class SplashScream extends javax.swing.JFrame implements Runnable {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel2 = new javax.swing.JLabel();
         jProgressBar1 = new javax.swing.JProgressBar();
         lblMensajes = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -53,6 +54,9 @@ public class SplashScream extends javax.swing.JFrame implements Runnable {
             }
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formularios/Logo.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 170, 190));
         getContentPane().add(jProgressBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 610, 20));
 
         lblMensajes.setText("Mensajes");
@@ -81,6 +85,7 @@ public class SplashScream extends javax.swing.JFrame implements Runnable {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JLabel lblMensajes;
     // End of variables declaration//GEN-END:variables

@@ -2,6 +2,7 @@
 package Formularios;
 
 import BaseDeDatos.ConexionMySQL;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,6 +11,11 @@ import javax.swing.JOptionPane;
 
 
 public class Acceso extends javax.swing.JFrame {
+    
+    public static  int nivelU;
+    public static int getNivelU() {
+        return nivelU;
+    }
 
    
     public Acceso() {
@@ -26,6 +32,7 @@ public class Acceso extends javax.swing.JFrame {
         icon2.setVisible(false);
     }
     
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -36,7 +43,7 @@ public class Acceso extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtusuario = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnAceptar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         passcontrasena = new javax.swing.JPasswordField();
@@ -71,11 +78,16 @@ public class Acceso extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
-        jButton1.setText("Aceptar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAceptar.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
+        btnAceptar.setText("Aceptar");
+        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAceptarActionPerformed(evt);
+            }
+        });
+        btnAceptar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnAceptarKeyPressed(evt);
             }
         });
 
@@ -96,6 +108,16 @@ public class Acceso extends javax.swing.JFrame {
         });
 
         passcontrasena.setToolTipText("Introduzca la contraseña de su cuenta de usuario");
+        passcontrasena.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passcontrasenaActionPerformed(evt);
+            }
+        });
+        passcontrasena.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                passcontrasenaKeyPressed(evt);
+            }
+        });
 
         icon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formularios/triangulo.png"))); // NOI18N
         icon1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -103,8 +125,8 @@ public class Acceso extends javax.swing.JFrame {
                 icon1MouseEntered(evt);
             }
         });
+        jLayeredPane2.add(icon1);
         icon1.setBounds(0, 0, 23, 21);
-        jLayeredPane2.add(icon1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         icon2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formularios/triangulo.png"))); // NOI18N
         icon2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -112,8 +134,8 @@ public class Acceso extends javax.swing.JFrame {
                 icon2MouseEntered(evt);
             }
         });
+        jLayeredPane3.add(icon2);
         icon2.setBounds(0, 0, 23, 21);
-        jLayeredPane3.add(icon2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -141,7 +163,7 @@ public class Acceso extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(txtusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -189,7 +211,7 @@ public class Acceso extends javax.swing.JFrame {
                             .addComponent(jLayeredPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
+                            .addComponent(btnAceptar)
                             .addComponent(jButton2))
                         .addGap(0, 70, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -234,8 +256,43 @@ public class Acceso extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtusuarioActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      String usuario="", contrasena="", sSQL="", nombre="", nivel="", status="";
+    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
+        Ingresar();
+    }//GEN-LAST:event_btnAceptarActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void icon1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon1MouseEntered
+        JOptionPane.showMessageDialog(null,"No ha introducido un usuario", "informacion", 2);
+    }//GEN-LAST:event_icon1MouseEntered
+
+    private void icon2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon2MouseEntered
+        JOptionPane.showMessageDialog(null,"No introdujo la contraseña", "informacion", 2);
+    }//GEN-LAST:event_icon2MouseEntered
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        limpiar();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void passcontrasenaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passcontrasenaKeyPressed
+        // TODO add your handling code here:
+        Ingresar(evt);
+    }//GEN-LAST:event_passcontrasenaKeyPressed
+
+    private void Ingresar(java.awt.event.KeyEvent evt) {                                               
+        // TODO add your handling code here:
+        
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER){
+            Ingresar();
+  
+        } 
+    }
+    private void Ingresar() {                                               
+        // TODO add your handling code here:
+        
+        String usuario="", contrasena="", sSQL="", nombre="", nivel="", status="";
 
         usuario=txtusuario.getText();
         contrasena=passcontrasena.getText();
@@ -260,12 +317,13 @@ public class Acceso extends javax.swing.JFrame {
 
                     if (rs.next()) {
                         nombre=rs.getString("usu_nombres");
-                        nivel=rs.getString("usu_nivel");
+                        nivelU=rs.getInt("usu_nivel");
                         status=rs.getString("usu_status");
                         if(status.equals("A")){
                             new Maestro().setVisible(true);
                             entrada.nombre_usuario=nombre;
-                            entrada.nivel_usuario=Integer.parseInt(nivel);
+                                //JOptionPane.showMessageDialog(null, nivelU);
+
                             this.dispose();
                         }
                         else{
@@ -281,24 +339,17 @@ public class Acceso extends javax.swing.JFrame {
                 }
             }
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }
+    private void passcontrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passcontrasenaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passcontrasenaActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void btnAceptarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnAceptarKeyPressed
+        // TODO add your handling code here:
+        Ingresar(evt);
+    }//GEN-LAST:event_btnAceptarKeyPressed
 
-    private void icon1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon1MouseEntered
-        JOptionPane.showMessageDialog(null,"No ha introducido un usuario", "informacion", 2);
-    }//GEN-LAST:event_icon1MouseEntered
-
-    private void icon2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon2MouseEntered
-        JOptionPane.showMessageDialog(null,"No introdujo la contraseña", "informacion", 2);
-    }//GEN-LAST:event_icon2MouseEntered
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        limpiar();
-    }//GEN-LAST:event_jButton2ActionPerformed
-
+    
     /**
      * @param args the command line arguments
      */
@@ -334,9 +385,9 @@ public class Acceso extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAceptar;
     private javax.swing.JLabel icon1;
     private javax.swing.JLabel icon2;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;

@@ -1,12 +1,15 @@
 
 package Formularios;
 import BaseDeDatos.ConexionMySQL;
+import com.toedter.calendar.JDateChooser;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -21,6 +24,7 @@ public class cita extends javax.swing.JInternalFrame {
         initComponents(); 
         modelo=new DefaultTableModel(null,titulo);
         tblcitas.setModel(modelo);
+        configurar_fecha(clrfechabuscar1);
         //setLocationRelativeTo(null);
         
     }
@@ -29,6 +33,38 @@ public class cita extends javax.swing.JInternalFrame {
          txtnombres.setText("");
          txtapellidos.setText("");
     }
+     void cargar(){
+         String[] registro= new String[5];
+         String dia=clrfechacita.getSelectedDay();
+         String mes=clrfechacita.getSelectedMonth();
+         String ano=clrfechacita.getSelectedYear();
+         String fecha=ano+"/"+mes+"/"+dia;
+         String sSQL ="";
+        modelo=new DefaultTableModel(null,titulo);
+        ConexionMySQL mysql =new ConexionMySQL();
+        Connection cn=mysql.Conectar();
+        
+        sSQL="SELECT cit_tipocedula, cit_cedula, cit_nombres, cit_apellidos, cit_fecha FROM cita WHERE cit_fecha = '"+fecha+"'";
+
+        try {
+            Statement st=cn.createStatement();
+            ResultSet rs = st.executeQuery(sSQL);
+
+            while(rs.next()){
+                registro[0]=rs.getString("cit_tipocedula")+rs.getString("cit_cedula");
+                registro[1]=rs.getString("cit_nombres");
+                registro[2]=rs.getString("cit_apellidos");
+                registro[3]=rs.getString("cit_fecha");
+                modelo.addRow(registro);
+            }
+             tblcitas.setModel(modelo);
+        }
+        catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+         
+        
+     }
 
     
     @SuppressWarnings("unchecked")
@@ -58,6 +94,7 @@ public class cita extends javax.swing.JInternalFrame {
         tblcitas = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
         clrfechabuscar = new org.gui.JCalendarCombo();
+        clrfechabuscar1 = new com.toedter.calendar.JDateChooser();
 
         mnucargar.setText("Modificar");
         mnucargar.addActionListener(new java.awt.event.ActionListener() {
@@ -263,6 +300,8 @@ public class cita extends javax.swing.JInternalFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(clrfechabuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(clrfechabuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -271,7 +310,8 @@ public class cita extends javax.swing.JInternalFrame {
                 .addGap(0, 12, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel4)
-                    .addComponent(clrfechabuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(clrfechabuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(clrfechabuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -358,6 +398,7 @@ public class cita extends javax.swing.JInternalFrame {
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
         String cedula="", ced1="", ced2="", nombre="", apellido="", dia="", mes="", ano="", fecha="", sSQL="";
 
+        int diacit=0, mescit=0, anocit=0, diaactu=0, mesactu=0, anoactu=0;
         ced1=cbocedula.getSelectedItem().toString();
         ced2=txtcedula.getText();
         nombre=txtnombres.getText();
@@ -365,32 +406,55 @@ public class cita extends javax.swing.JInternalFrame {
         dia=clrfechacita.getSelectedDay();
         mes=clrfechacita.getSelectedMonth();
         ano=clrfechacita.getSelectedYear();
-        fecha=ano+"/"+mes+"/"+dia; 
+        fecha=ano+"/"+mes+"/"+dia;
         
-        ConexionMySQL mysql = new ConexionMySQL();
-        Connection cn = mysql.Conectar();
+        SimpleDateFormat formateador = new SimpleDateFormat("dd-MM-yyyy");
+        Date fechaDate = new Date();
+        String fechas=formateador.format(fechaDate);
+        
+        diacit=Integer.parseInt(dia);
+        mescit=Integer.parseInt(mes);
+        anocit=Integer.parseInt(ano);
+        diaactu=Integer.parseInt(fechas.substring(0, 2));
+        mesactu=Integer.parseInt(fechas.substring(3, 5));
+        anoactu=Integer.parseInt(fechas.substring(6, 10));
+       
+        
+         if(anocit>=anoactu){
+           
+            if(mescit>=mesactu){
+                
+                if(diacit>diaactu){
+                    JOptionPane.showMessageDialog(null, "La cita que esta intentando registrar no es valida");
+                    }
+                else{
+                ConexionMySQL mysql = new ConexionMySQL();
+                Connection cn = mysql.Conectar();
 
-        sSQL="INSERT INTO cita(cit_tipocedula, cit_cedula, cit_nombres, cit_apellidos, cit_fecha) VALUES (?,?,?,?,?)";
+                sSQL="INSERT INTO cita(cit_tipocedula, cit_cedula, cit_nombres, cit_apellidos, cit_fecha) VALUES (?,?,?,?,?)";
 
-        try {
-            PreparedStatement pst = cn.prepareStatement(sSQL);
-            pst.setString(1, ced1);
-            pst.setString(2, ced2);
-            pst.setString(3, nombre);
-            pst.setString(4, apellido);
-            pst.setString(5, fecha);
+                try {
+                    PreparedStatement pst = cn.prepareStatement(sSQL);
+                    pst.setString(1, ced1);
+                    pst.setString(2, ced2);
+                    pst.setString(3, nombre);
+                    pst.setString(4, apellido);
+                    pst.setString(5, fecha);
 
-            int n = pst.executeUpdate();
-            if (n > 0) {
-                JOptionPane.showMessageDialog(null, "La cita fue registrada exitosamente");
-                limpiar();
-                NiveldeAcceso entrada= new NiveldeAcceso();
-                Statement stmt=cn.createStatement();
-                int result=stmt.executeUpdate("INSERT INTO bitacora VALUES (null,'"+entrada.nombre_usuario+"', 'Registro y Consulta de Citas', 'Guardo Cita CI: "+cedula+"', now())");
-            }
+                    int n = pst.executeUpdate();
+                    if (n > 0) {
+                        JOptionPane.showMessageDialog(null, "La cita fue registrada exitosamente");
+                        limpiar();
+                        NiveldeAcceso entrada= new NiveldeAcceso();
+                        Statement stmt=cn.createStatement();
+                        int result=stmt.executeUpdate("INSERT INTO bitacora VALUES (null,'"+entrada.nombre_usuario+"', 'Registro y Consulta de Citas', 'Guardo Cita CI: "+cedula+"', now())");
+                    }
+                }
+                catch(SQLException ex){
+                    JOptionPane.showMessageDialog(null,ex);
+                }
         }
-        catch(SQLException ex){
-            JOptionPane.showMessageDialog(null,ex);
+        } 
         }
     }//GEN-LAST:event_btnguardarActionPerformed
 
@@ -405,7 +469,11 @@ public class cita extends javax.swing.JInternalFrame {
         dia=clrfechabuscar.getSelectedDay();
         mes=clrfechabuscar.getSelectedMonth();
         ano=clrfechabuscar.getSelectedYear();
-        fecha=ano+"/"+mes+"/"+dia;
+        
+        fecha=ano+"-"+(nroMes(Integer.valueOf(mes)))+"-"+dia;
+        //fecha=nroMes(Integer.valueOf(mes));
+
+        JOptionPane.showMessageDialog(null, fecha);
         modelo=new DefaultTableModel(null,titulo);
         ConexionMySQL mysql =new ConexionMySQL();
         Connection cn=mysql.Conectar();
@@ -425,7 +493,7 @@ public class cita extends javax.swing.JInternalFrame {
             }
             NiveldeAcceso entrada= new NiveldeAcceso();
             Statement stmt=cn.createStatement();
-            int result=stmt.executeUpdate("INSERT INTO bitacora VALUES (null,'"+entrada.nombre_usuario+"', 'Registro y Consulta de Usuario', 'Consulto Usuario CI: "+registro[0]+" ', now())");
+            int result=stmt.executeUpdate("INSERT INTO bitacora VALUES (null,'"+entrada.nombre_usuario+"', 'Registro y Consulta de Citas', 'Consulto Cita CI: "+registro[0]+" ', now())");
             tblcitas.setModel(modelo);
         }
         catch (SQLException ex) {
@@ -463,36 +531,63 @@ public class cita extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnsalirActionPerformed
 
     private void btnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarActionPerformed
-       String ced1="", ced2="", cedula="", nombres="", apellidos="",dia="", mes="", ano="", fecha="", sSQL="";
-        
-        ced1=cbocedula.getSelectedItem().toString();
+       String ced1="", ced2="", cedula="", nombres="", apellidos="",dia="", mes="", ano="", fecha="", sSQL="",id="";
+       String[] registro= new String[1];
+       int diacit=0, mescit=0, anocit=0, diaactu=0, mesactu=0, anoactu=0; 
+       ced1=cbocedula.getSelectedItem().toString();
         ced2=txtcedula.getText();
         cedula=ced1+ced2;
-        dia=clrfechabuscar.getSelectedDay();
-        mes=clrfechabuscar.getSelectedMonth();
-        ano=clrfechabuscar.getSelectedYear();
+        dia=clrfechacita.getSelectedDay();
+        mes=clrfechacita.getSelectedMonth();
+        ano=clrfechacita.getSelectedYear();
         fecha=ano+"/"+mes+"/"+dia;
         
-        ConexionMySQL mysql=new ConexionMySQL();
-        Connection cn = mysql.Conectar();
+        SimpleDateFormat formateador = new SimpleDateFormat("dd-MM-yyyy");
+        Date fechaDate = new Date();
+        String fechas=formateador.format(fechaDate);
         
-        sSQL="UPDATE cita SET  cit_fecha='"+fecha+"' WHERE CONCAT (cit_tipocedula, cit_cedula) = '"+cedula+"'";
+        diacit=Integer.parseInt(dia);
+        mescit=Integer.parseInt(mes);
+        anocit=Integer.parseInt(ano);
+        diaactu=Integer.parseInt(fechas.substring(0, 2));
+        mesactu=Integer.parseInt(fechas.substring(3, 5));
+        anoactu=Integer.parseInt(fechas.substring(6, 10));
+       
         
-        try {
-            PreparedStatement pst=cn.prepareStatement(sSQL);
-            int n=pst.executeUpdate();
-            if(n>0){
-                 JOptionPane.showMessageDialog(null,"Actualizacion Satisfactoria");
-                 limpiar();
-                 NiveldeAcceso entrada= new NiveldeAcceso();
-                 Statement stmt=cn.createStatement();
-                 int result=stmt.executeUpdate("INSERT INTO bitacora VALUES (null,'"+entrada.nombre_usuario+"', 'Registro y Consulta de Usuario', 'Actualizo Usuario CI: "+cedula+" ', now())");
-            }      
-        } 
-        catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null,ex);
+        if(anocit>=anoactu){
+           
+            if(mescit>=mesactu){
+                
+                if(diacit>diaactu){
+                    
+                    JOptionPane.showMessageDialog(null, "La cita que esta intentando modificar no es valida");
+                    }
+                else{
+                    
+                    ConexionMySQL mysql=new ConexionMySQL();
+                    Connection cn = mysql.Conectar();
+                    
+                    sSQL="UPDATE cita SET cit_fecha='"+fecha+"' WHERE CONCAT(cit_tipocedula,cit_cedula) like '"+cedula+"'";
+                    
+                    try {
+                        PreparedStatement pst=cn.prepareStatement(sSQL);
+                        int n=pst.executeUpdate();
+                        if(n>0){
+                         JOptionPane.showMessageDialog(null,"Actualizacion Satisfactoria");
+                         limpiar();
+                         NiveldeAcceso entrada= new NiveldeAcceso();
+                         Statement stmt=cn.createStatement();
+                         int result=stmt.executeUpdate("INSERT INTO bitacora VALUES (null,'"+entrada.nombre_usuario+"', 'Registro y Consulta de Citas', 'Actualizo Cita CI: "+cedula+" ', now())");
+                         cargar();
+                        }  
+                    } 
+                    catch (SQLException ex) {
+                        JOptionPane.showMessageDialog(null,ex);
+                    }
+                }
+            }
         }
-        //cargar();
+    
     }                                             
 
     private void btncancelarActionPerformed(java.awt.event.ActionEvent evt) {                                            
@@ -567,7 +662,7 @@ public class cita extends javax.swing.JInternalFrame {
         modelo = (DefaultTableModel) tblcitas.getModel();
         String id = (String) modelo.getValueAt(j,0);
             
-        sSQL="DELETE FROM cita WHERE CONCAT (usu_tipocedula, usu_cedula)='"+id+"'";
+        sSQL="DELETE FROM cita WHERE CONCAT (cit_tipocedula, cit_cedula)='"+id+"'";
         try {
             PreparedStatement pst=cn.prepareStatement(sSQL);
             int n=pst.executeUpdate();
@@ -582,6 +677,8 @@ public class cita extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null,ex);
         }
         }
+        modelo=new DefaultTableModel(null,titulo);
+        tblcitas.setModel(modelo);
         
     }//GEN-LAST:event_btneliminarActionPerformed
 
@@ -619,6 +716,49 @@ public class cita extends javax.swing.JInternalFrame {
             }
         });
     }
+    private Date mysqlDateAJavaDate(String mDate){            
+        Date fecha=new Date();
+        String[] fechaArray=new String[3];
+        int dia=0, mes=0, año=0;
+        fechaArray=mDate.split("-");
+        año=Integer.valueOf(fechaArray[0]);
+        mes=Integer.valueOf(fechaArray[1]);
+        dia=Integer.valueOf(fechaArray[2]);
+        fecha.setDate(dia);
+        fecha.setMonth(mes-1);
+        fecha.setYear(año-1900);
+   return fecha;
+   }
+   private String javaDateAMysqlDate(Date jDate){
+       String mDate="";
+       int dia=0, mes=0, año=0;
+       dia=jDate.getDate();
+       mes=jDate.getMonth()+1;
+       año=jDate.getYear()+1900;
+       mDate= año+"-"+mes+"-"+dia;
+       return mDate;
+   
+   }
+    
+    private void configurar_fecha(JDateChooser calendario){/* configura el rango de fecha seleccionable */
+        Date dentro120= new Date();
+        dentro120.setYear(dentro120.getYear()+120);// resta 120 años a la fecha actual
+        calendario.setMaxSelectableDate(dentro120);
+        Date hoy = new Date();
+        calendario.setMinSelectableDate(hoy);//establece como fecha minima es  hoy
+    }
+    private String nroMes(int nrohist){
+       String numFormateado="";
+       if(nrohist<10)
+       //for(int i=0;i<ceros;i++)
+           numFormateado="0";
+           //JOptionPane.showMessageDialog(null, " nro; "+numFormateado );
+       
+       numFormateado+=nrohist;
+   
+       return numFormateado;
+   }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnactualizar;
     private javax.swing.JButton btnbuscar;
@@ -628,6 +768,7 @@ public class cita extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnsalir;
     public static javax.swing.JComboBox cbocedula;
     private org.gui.JCalendarCombo clrfechabuscar;
+    private com.toedter.calendar.JDateChooser clrfechabuscar1;
     private org.gui.JCalendarCombo clrfechacita;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

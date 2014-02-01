@@ -37,8 +37,8 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="jPanel1" max="32767" attributes="0"/>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -54,25 +54,19 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="800" max="32767" attributes="0"/>
-              <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane5" pref="746" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace pref="23" max="32767" attributes="0"/>
+                  <Component id="jScrollPane5" min="-2" pref="705" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="1243" max="32767" attributes="0"/>
-              <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane5" min="-2" pref="985" max="-2" attributes="0"/>
-                      <EmptySpace pref="246" max="32767" attributes="0"/>
-                  </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace pref="23" max="32767" attributes="0"/>
+                  <Component id="jScrollPane5" min="-2" pref="1094" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -83,50 +77,44 @@
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
             <Container class="javax.swing.JPanel" name="jPanel2">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                    <LineBorder thickness="2"/>
+                  </Border>
+                </Property>
+              </Properties>
 
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="jPanel6" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="btnguardar" min="-2" pref="87" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnlimpiar" min="-2" pref="88" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnbuscar" min="-2" pref="89" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnactualizar" min="-2" pref="85" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btneliminar" min="-2" pref="94" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btncancelar" min="-2" pref="97" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jPanel3" max="32767" attributes="0"/>
+                                      <Component id="jPanel4" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <Component id="jPanel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jPanel4" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="196" max="32767" attributes="0"/>
+                          <EmptySpace pref="90" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="btnactualizar" alignment="0" max="32767" attributes="0"/>
-                              <Component id="btnbuscar" alignment="0" max="32767" attributes="0"/>
-                              <Component id="btnguardar" alignment="0" max="32767" attributes="0"/>
-                              <Component id="btnlimpiar" alignment="0" max="32767" attributes="0"/>
-                              <Component id="btneliminar" alignment="0" max="32767" attributes="0"/>
-                              <Component id="btncancelar" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jPanel3" min="-2" pref="202" max="-2" attributes="0"/>
+                          <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                          <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="443" max="32767" attributes="0"/>
+                          <EmptySpace pref="155" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -134,9 +122,12 @@
               <SubComponents>
                 <Container class="javax.swing.JPanel" name="jPanel3">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
-                        <BevelBorder/>
+                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                        <LineBorder/>
                       </Border>
                     </Property>
                   </Properties>
@@ -154,19 +145,16 @@
                                           </Group>
                                           <Group type="102" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Group type="102" attributes="0">
-                                                          <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
-                                                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" alignment="1" attributes="0">
-                                                          <EmptySpace max="-2" attributes="0"/>
-                                                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                                                      </Group>
+                                                  <Group type="102" attributes="0">
+                                                      <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
+                                                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <Group type="102" alignment="0" attributes="0">
+                                                  <Group type="102" alignment="1" attributes="0">
                                                       <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="jLabel6" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="jLabel5" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
                                                   </Group>
                                               </Group>
                                               <EmptySpace max="-2" attributes="0"/>
@@ -262,6 +250,9 @@
                   <SubComponents>
                     <Component class="javax.swing.JLabel" name="jLabel1">
                       <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Trebuchet MS" size="12" style="1"/>
+                        </Property>
                         <Property name="horizontalAlignment" type="int" value="0"/>
                         <Property name="text" type="java.lang.String" value="Datos del Paciente"/>
                         <Property name="focusable" type="boolean" value="false"/>
@@ -272,30 +263,45 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel2">
                       <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Trebuchet MS" size="12" style="1"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Nombre:"/>
                         <Property name="focusable" type="boolean" value="false"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel3">
                       <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Trebuchet MS" size="12" style="1"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Edad:"/>
                         <Property name="focusable" type="boolean" value="false"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel4">
                       <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Trebuchet MS" size="12" style="1"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Sexo:"/>
                         <Property name="focusable" type="boolean" value="false"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel5">
                       <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Trebuchet MS" size="12" style="1"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Domicilio Particular:"/>
                         <Property name="focusable" type="boolean" value="false"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel6">
                       <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Trebuchet MS" size="12" style="1"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Telefono:"/>
                         <Property name="focusable" type="boolean" value="false"/>
                       </Properties>
@@ -303,11 +309,17 @@
                     <Component class="javax.swing.JTextField" name="txtNombre">
                       <Properties>
                         <Property name="editable" type="boolean" value="false"/>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Trebuchet MS" size="12" style="1"/>
+                        </Property>
                         <Property name="focusable" type="boolean" value="false"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JComboBox" name="cmbSexo">
                       <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Trebuchet MS" size="12" style="1"/>
+                        </Property>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="2">
                             <StringItem index="0" value="Hombre"/>
@@ -320,21 +332,35 @@
                     <Component class="javax.swing.JTextField" name="txtEdad">
                       <Properties>
                         <Property name="editable" type="boolean" value="false"/>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Trebuchet MS" size="12" style="1"/>
+                        </Property>
                         <Property name="focusable" type="boolean" value="false"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtTelefono">
                       <Properties>
                         <Property name="editable" type="boolean" value="false"/>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Trebuchet MS" size="12" style="1"/>
+                        </Property>
                         <Property name="focusable" type="boolean" value="false"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel7">
                       <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Trebuchet MS" size="12" style="1"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Nro de Historia:"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtcedula">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Trebuchet MS" size="12" style="1"/>
+                        </Property>
+                      </Properties>
                       <Events>
                         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtcedulaFocusGained"/>
                         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtcedulaKeyTyped"/>
@@ -342,11 +368,19 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel26">
                       <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Trebuchet MS" size="12" style="1"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Cedula:"/>
                         <Property name="focusable" type="boolean" value="false"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtNroHist">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Trebuchet MS" size="12" style="1"/>
+                        </Property>
+                      </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNroHistActionPerformed"/>
                         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtNroHistFocusGained"/>
@@ -358,6 +392,9 @@
                     <Component class="javax.swing.JTextField" name="txtDomicilio">
                       <Properties>
                         <Property name="editable" type="boolean" value="false"/>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Trebuchet MS" size="12" style="1"/>
+                        </Property>
                         <Property name="focusable" type="boolean" value="false"/>
                       </Properties>
                     </Component>
@@ -375,9 +412,12 @@
                 </Container>
                 <Container class="javax.swing.JPanel" name="jPanel4">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
-                        <BevelBorder/>
+                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                        <LineBorder/>
                       </Border>
                     </Property>
                   </Properties>
@@ -391,7 +431,7 @@
                                   <Component id="jPanel5" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLayeredPane1" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="42" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -529,9 +569,9 @@
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" attributes="0">
                                                   <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace pref="34" max="32767" attributes="0"/>
+                                                  <EmptySpace max="32767" attributes="0"/>
                                                   <Component id="tbtnAmigd" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="133" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="102" attributes="0">
                                                   <Component id="cmbResCuando" min="-2" max="-2" attributes="0"/>
@@ -640,6 +680,9 @@
                       <SubComponents>
                         <Component class="javax.swing.JLabel" name="lblEstPorque">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Trebuchet MS" size="12" style="1"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="&#xbf;Por qu&#xe9;?"/>
                             <Property name="focusable" type="boolean" value="false"/>
                           </Properties>
@@ -662,6 +705,9 @@
                             <Component class="javax.swing.JTextArea" name="txtEstDes">
                               <Properties>
                                 <Property name="columns" type="int" value="20"/>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Trebuchet MS" size="12" style="1"/>
+                                </Property>
                                 <Property name="rows" type="int" value="5"/>
                               </Properties>
                               <Events>
@@ -672,12 +718,18 @@
                         </Container>
                         <Component class="javax.swing.JLabel" name="jLabel10">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Trebuchet MS" size="12" style="1"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="&#xbf;Ha estado bajo medicacion en los ultimos a&#xf1;os, aparte de los examenes de rutina?"/>
                             <Property name="focusable" type="boolean" value="false"/>
                           </Properties>
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel12">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Trebuchet MS" size="12" style="1"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="&#xbf;Toma medicamentos Actualmente?"/>
                             <Property name="focusable" type="boolean" value="false"/>
                           </Properties>
@@ -692,6 +744,9 @@
                         </Component>
                         <Component class="javax.swing.JLabel" name="lblMedCuales">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Trebuchet MS" size="12" style="1"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="&#xbf;Cuales?"/>
                             <Property name="focusable" type="boolean" value="false"/>
                           </Properties>
@@ -706,6 +761,9 @@
                             <Component class="javax.swing.JTextArea" name="txtMedDes">
                               <Properties>
                                 <Property name="columns" type="int" value="20"/>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Trebuchet MS" size="12" style="1"/>
+                                </Property>
                                 <Property name="rows" type="int" value="5"/>
                               </Properties>
                               <Events>
@@ -716,23 +774,37 @@
                         </Container>
                         <Component class="javax.swing.JLabel" name="jLabel14">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Trebuchet MS" size="12" style="1"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="&#xbf;Ronca cuando duerme?"/>
                             <Property name="focusable" type="boolean" value="false"/>
                           </Properties>
                         </Component>
                         <Component class="javax.swing.JTextField" name="txtDolDes">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Trebuchet MS" size="12" style="1"/>
+                            </Property>
+                          </Properties>
                           <Events>
                             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtDolDesKeyTyped"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel15">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Trebuchet MS" size="12" style="1"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Es al&#xe9;rgico a:"/>
                             <Property name="focusable" type="boolean" value="false"/>
                           </Properties>
                         </Component>
                         <Component class="javax.swing.JRadioButton" name="rbtnPolvo">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Trebuchet MS" size="12" style="1"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Polvo"/>
                           </Properties>
                           <Events>
@@ -741,6 +813,9 @@
                         </Component>
                         <Component class="javax.swing.JRadioButton" name="rbtnMed">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Trebuchet MS" size="12" style="1"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Medicamentos"/>
                           </Properties>
                           <Events>
@@ -749,6 +824,9 @@
                         </Component>
                         <Component class="javax.swing.JRadioButton" name="rbtnAlimentos">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Trebuchet MS" size="12" style="1"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="alimentos"/>
                           </Properties>
                           <Events>
@@ -756,6 +834,11 @@
                           </Events>
                         </Component>
                         <Component class="javax.swing.JTextField" name="txtAlerDes">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Trebuchet MS" size="12" style="1"/>
+                            </Property>
+                          </Properties>
                           <Events>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtAlerDesActionPerformed"/>
                             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtAlerDesKeyTyped"/>
@@ -763,12 +846,18 @@
                         </Component>
                         <Component class="javax.swing.JLabel" name="rbtnOtros">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Trebuchet MS" size="12" style="1"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Otros:"/>
                             <Property name="focusable" type="boolean" value="false"/>
                           </Properties>
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel17">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Trebuchet MS" size="12" style="1"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="&#xbf;Qu&#xe9; toma normalmente para el dolor de cabeza?"/>
                             <Property name="focusable" type="boolean" value="false"/>
                           </Properties>
@@ -783,6 +872,9 @@
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel18">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Trebuchet MS" size="12" style="1"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="&#xbf;Respira por la boca?"/>
                             <Property name="focusable" type="boolean" value="false"/>
                           </Properties>
@@ -811,6 +903,9 @@
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel19">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Trebuchet MS" size="12" style="1"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="&#xbf;Se resfria con frecuencia?"/>
                             <Property name="focusable" type="boolean" value="false"/>
                           </Properties>
@@ -825,6 +920,9 @@
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel20">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Trebuchet MS" size="12" style="1"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="&#xbf;Sufre de agmigdalitis o sinussitis?"/>
                             <Property name="focusable" type="boolean" value="false"/>
                           </Properties>
@@ -847,6 +945,9 @@
                             <Component class="javax.swing.JTextArea" name="txtMastDes">
                               <Properties>
                                 <Property name="columns" type="int" value="20"/>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Trebuchet MS" size="12" style="1"/>
+                                </Property>
                                 <Property name="rows" type="int" value="5"/>
                               </Properties>
                               <Events>
@@ -857,6 +958,9 @@
                         </Container>
                         <Component class="javax.swing.JLabel" name="lblMastPorque">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Trebuchet MS" size="12" style="1"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="&#xbf;Porqu&#xe9;?"/>
                             <Property name="focusable" type="boolean" value="false"/>
                           </Properties>
@@ -871,12 +975,18 @@
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel22">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Trebuchet MS" size="12" style="1"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="&#xbf;Tiene dificultad para masticar o tragar?"/>
                             <Property name="focusable" type="boolean" value="false"/>
                           </Properties>
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel23">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Trebuchet MS" size="12" style="1"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="&#xbf;Ha sido tratado por un alergeologo o especialistas del oido, nariz o garganta ?"/>
                             <Property name="focusable" type="boolean" value="false"/>
                           </Properties>
@@ -891,6 +1001,9 @@
                         </Component>
                         <Component class="javax.swing.JLabel" name="lblOrlPorque">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Trebuchet MS" size="12" style="1"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="&#xbf;Porqu&#xe9;?"/>
                             <Property name="focusable" type="boolean" value="false"/>
                           </Properties>
@@ -905,6 +1018,9 @@
                             <Component class="javax.swing.JTextArea" name="txtOrlDes">
                               <Properties>
                                 <Property name="columns" type="int" value="20"/>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Trebuchet MS" size="12" style="1"/>
+                                </Property>
                                 <Property name="rows" type="int" value="5"/>
                               </Properties>
                               <Events>
@@ -915,6 +1031,9 @@
                         </Container>
                         <Component class="javax.swing.JRadioButton" name="rbtnCirugia">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Trebuchet MS" size="12" style="1"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Cirugia nasal"/>
                           </Properties>
                           <Events>
@@ -923,6 +1042,9 @@
                         </Component>
                         <Component class="javax.swing.JRadioButton" name="rbtnAmigd">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Trebuchet MS" size="12" style="1"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Amigdalectom&#xed;a"/>
                           </Properties>
                           <Events>
@@ -931,6 +1053,9 @@
                         </Component>
                         <Component class="javax.swing.JRadioButton" name="rbtnAdenoi">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Trebuchet MS" size="12" style="1"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Adenoidectom&#xed;a"/>
                           </Properties>
                           <Events>
@@ -944,6 +1069,9 @@
                         </Component>
                         <Component class="javax.swing.JLabel" name="lblOrlCuando">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Trebuchet MS" size="12" style="1"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="&#xbf;cuando?"/>
                             <Property name="focusable" type="boolean" value="false"/>
                           </Properties>
@@ -1038,6 +1166,9 @@
                       <SubComponents>
                         <Component class="javax.swing.JLabel" name="jLabel8">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Trebuchet MS" size="12" style="1"/>
+                            </Property>
                             <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="text" type="java.lang.String" value="Historia M&#xe9;dica"/>
                             <Property name="focusable" type="boolean" value="false"/>
@@ -1048,12 +1179,18 @@
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabel9">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Trebuchet MS" size="12" style="1"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Ha padecido alguna vez:"/>
                             <Property name="focusable" type="boolean" value="false"/>
                           </Properties>
                         </Component>
                         <Component class="javax.swing.JRadioButton" name="rbtnasma">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Trebuchet MS" size="12" style="1"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Asma"/>
                           </Properties>
                           <Events>
@@ -1062,6 +1199,9 @@
                         </Component>
                         <Component class="javax.swing.JRadioButton" name="rbtndiabetes">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Trebuchet MS" size="12" style="1"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Diabetes"/>
                           </Properties>
                           <Events>
@@ -1070,6 +1210,9 @@
                         </Component>
                         <Component class="javax.swing.JRadioButton" name="rbtnanemia">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Trebuchet MS" size="12" style="1"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Anemia"/>
                           </Properties>
                           <Events>
@@ -1078,6 +1221,9 @@
                         </Component>
                         <Component class="javax.swing.JRadioButton" name="rbtnherpes">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Trebuchet MS" size="12" style="1"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Herpes"/>
                           </Properties>
                           <Events>
@@ -1086,6 +1232,9 @@
                         </Component>
                         <Component class="javax.swing.JRadioButton" name="rbtnepilepsia">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Trebuchet MS" size="12" style="1"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Epilepsia"/>
                           </Properties>
                           <Events>
@@ -1094,6 +1243,9 @@
                         </Component>
                         <Component class="javax.swing.JRadioButton" name="rbtnhepatitis">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Trebuchet MS" size="12" style="1"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Hepatitis"/>
                           </Properties>
                           <Events>
@@ -1102,6 +1254,9 @@
                         </Component>
                         <Component class="javax.swing.JRadioButton" name="rbtnecardiaca">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Trebuchet MS" size="12" style="1"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Enfermedad cardiaca"/>
                           </Properties>
                           <Events>
@@ -1110,6 +1265,9 @@
                         </Component>
                         <Component class="javax.swing.JRadioButton" name="rbtnhipertencion">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Trebuchet MS" size="12" style="1"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Hipertencion"/>
                           </Properties>
                           <Events>
@@ -1118,6 +1276,9 @@
                         </Component>
                         <Component class="javax.swing.JRadioButton" name="rbtnesanguinea">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Trebuchet MS" size="12" style="1"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Enfermedad Sangu&#xed;nea"/>
                           </Properties>
                           <Events>
@@ -1126,6 +1287,9 @@
                         </Component>
                         <Component class="javax.swing.JRadioButton" name="rbtnpendcrino">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Trebuchet MS" size="12" style="1"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value=" Problema endocrino"/>
                           </Properties>
                           <Events>
@@ -1134,6 +1298,9 @@
                         </Component>
                         <Component class="javax.swing.JRadioButton" name="rbtnfreumatica">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Trebuchet MS" size="12" style="1"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Fiebre Reum&#xe1;tica"/>
                           </Properties>
                           <Events>
@@ -1142,6 +1309,9 @@
                         </Component>
                         <Component class="javax.swing.JRadioButton" name="rbtntoseos">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Trebuchet MS" size="12" style="1"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Trastornos &#xf3;seos"/>
                           </Properties>
                           <Events>
@@ -1150,6 +1320,9 @@
                         </Component>
                         <Component class="javax.swing.JRadioButton" name="rbtndcerebral">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Trebuchet MS" size="12" style="1"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Da&#xf1;o Cerebral o Facial"/>
                           </Properties>
                           <Events>
@@ -1158,6 +1331,9 @@
                         </Component>
                         <Component class="javax.swing.JRadioButton" name="rbtnpemocionales">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Trebuchet MS" size="12" style="1"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Problemas Emocionales"/>
                           </Properties>
                           <Events>
@@ -1168,102 +1344,160 @@
                     </Container>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JButton" name="btnguardar">
+                <Container class="javax.swing.JPanel" name="jPanel6">
                   <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/botones/aceptar2.png"/>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/botones/aceptar3.png"/>
-                    </Property>
-                    <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/botones/aceptar1.png"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                        <EtchetBorder/>
+                      </Border>
                     </Property>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnguardarActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JButton" name="btncancelar">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/botones/cancelar2.png"/>
-                    </Property>
-                    <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/botones/cancelar3.png"/>
-                    </Property>
-                    <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/botones/cancelar1.png"/>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btncancelarActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JButton" name="btnactualizar">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/botones/actualizar2.png"/>
-                    </Property>
-                    <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/botones/actualizar3.png"/>
-                    </Property>
-                    <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/botones/actualizar1.png"/>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnactualizarActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JButton" name="btnlimpiar">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/botones/limpiar2.png"/>
-                    </Property>
-                    <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/botones/limpiar3.png"/>
-                    </Property>
-                    <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/botones/limpiar1.png"/>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnlimpiarActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JButton" name="btneliminar">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/botones/borrar2.png"/>
-                    </Property>
-                    <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/botones/borrar3.png"/>
-                    </Property>
-                    <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/botones/borrar1.png"/>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btneliminarActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JButton" name="btnbuscar">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/botones/buscar2.png"/>
-                    </Property>
-                    <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/botones/buscarpeq3.png"/>
-                    </Property>
-                    <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/botones/buscar1.png"/>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnbuscarActionPerformed"/>
-                  </Events>
-                </Component>
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="btnguardar" min="-2" pref="87" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                              <Component id="btnlimpiar" min="-2" pref="88" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnbuscar" min="-2" pref="89" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="btnactualizar" min="-2" pref="85" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="btneliminar" min="-2" pref="94" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="btncancelar" min="-2" pref="97" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="btncancelar" pref="0" max="32767" attributes="0"/>
+                                  <Component id="btneliminar" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="btnbuscar" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btnlimpiar" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btnguardar" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btnactualizar" alignment="1" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="javax.swing.JButton" name="btnguardar">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/botones/aceptar2.png"/>
+                        </Property>
+                        <Property name="toolTipText" type="java.lang.String" value="Guardar"/>
+                        <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/botones/aceptar3.png"/>
+                        </Property>
+                        <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/botones/aceptar1.png"/>
+                        </Property>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnguardarActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnlimpiar">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/botones/limpiar2.png"/>
+                        </Property>
+                        <Property name="toolTipText" type="java.lang.String" value="Limpiar"/>
+                        <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/botones/limpiar3.png"/>
+                        </Property>
+                        <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/botones/limpiar1.png"/>
+                        </Property>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnlimpiarActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnbuscar">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/botones/buscar2.png"/>
+                        </Property>
+                        <Property name="toolTipText" type="java.lang.String" value="Buscar"/>
+                        <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/botones/buscar3.png"/>
+                        </Property>
+                        <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/botones/buscar1.png"/>
+                        </Property>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnbuscarActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnactualizar">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/botones/actualizar2.png"/>
+                        </Property>
+                        <Property name="toolTipText" type="java.lang.String" value="Actualizar"/>
+                        <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/botones/actualizar3.png"/>
+                        </Property>
+                        <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/botones/actualizar1.png"/>
+                        </Property>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnactualizarActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btneliminar">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/botones/borrar2.png"/>
+                        </Property>
+                        <Property name="toolTipText" type="java.lang.String" value="Eliminar"/>
+                        <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/botones/borrar3.png"/>
+                        </Property>
+                        <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/botones/borrar1.png"/>
+                        </Property>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btneliminarActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btncancelar">
+                      <Properties>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/botones/cancelar2.png"/>
+                        </Property>
+                        <Property name="toolTipText" type="java.lang.String" value="Salir"/>
+                        <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/botones/cancelar3.png"/>
+                        </Property>
+                        <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/botones/cancelar3.png"/>
+                        </Property>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btncancelarActionPerformed"/>
+                      </Events>
+                    </Component>
+                  </SubComponents>
+                </Container>
               </SubComponents>
             </Container>
           </SubComponents>

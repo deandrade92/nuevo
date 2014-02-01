@@ -447,6 +447,15 @@ public class Usuarios extends javax.swing.JInternalFrame {
                 txtcedulaFocusLost(evt);
             }
         });
+        txtcedula.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+                txtcedulaAncestorRemoved(evt);
+            }
+        });
         txtcedula.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtcedulaKeyTyped(evt);
@@ -478,18 +487,33 @@ public class Usuarios extends javax.swing.JInternalFrame {
 
         txtid.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         txtid.setToolTipText("Introduzca el id con el desea ingresar al sistema. Ejemplo: mariaP65");
+        txtid.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtidKeyTyped(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         jLabel5.setText("Contraseña");
 
         passcontraseña.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         passcontraseña.setToolTipText("Introduzca la contraseña que permitira su comprobación ante el sistema");
+        passcontraseña.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                passcontraseñaKeyTyped(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         jLabel6.setText("Repita contraseña");
 
         passrepitacontraseña.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         passrepitacontraseña.setToolTipText("Repita la contraseña que permitira su comprobación ante el sistema");
+        passrepitacontraseña.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                passrepitacontraseñaKeyTyped(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         jLabel7.setText("Nivel de acceso");
@@ -538,8 +562,8 @@ public class Usuarios extends javax.swing.JInternalFrame {
                 icon2MouseEntered(evt);
             }
         });
+        jLayeredPane1.add(icon2);
         icon2.setBounds(0, 0, 23, 30);
-        jLayeredPane1.add(icon2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         icon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formularios/triangulo.png"))); // NOI18N
         icon1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -547,8 +571,8 @@ public class Usuarios extends javax.swing.JInternalFrame {
                 icon1MouseEntered(evt);
             }
         });
+        jLayeredPane1.add(icon1);
         icon1.setBounds(0, 0, 23, 30);
-        jLayeredPane1.add(icon1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         icon4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formularios/triangulo.png"))); // NOI18N
         icon4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -556,8 +580,8 @@ public class Usuarios extends javax.swing.JInternalFrame {
                 icon4MouseEntered(evt);
             }
         });
+        jLayeredPane2.add(icon4);
         icon4.setBounds(0, 0, 23, 20);
-        jLayeredPane2.add(icon4, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         icon6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formularios/triangulo.png"))); // NOI18N
         icon6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -565,8 +589,8 @@ public class Usuarios extends javax.swing.JInternalFrame {
                 icon6MouseEntered(evt);
             }
         });
+        jLayeredPane3.add(icon6);
         icon6.setBounds(0, 0, 23, 20);
-        jLayeredPane3.add(icon6, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         icon3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formularios/triangulo.png"))); // NOI18N
         icon3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -574,8 +598,8 @@ public class Usuarios extends javax.swing.JInternalFrame {
                 icon3MouseEntered(evt);
             }
         });
+        jLayeredPane4.add(icon3);
         icon3.setBounds(0, 0, 23, 20);
-        jLayeredPane4.add(icon3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         icon5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formularios/triangulo.png"))); // NOI18N
         icon5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -583,8 +607,8 @@ public class Usuarios extends javax.swing.JInternalFrame {
                 icon5MouseEntered(evt);
             }
         });
+        jLayeredPane5.add(icon5);
         icon5.setBounds(0, 0, 23, 20);
-        jLayeredPane5.add(icon5, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         icon7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formularios/triangulo.png"))); // NOI18N
         icon7.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -592,8 +616,8 @@ public class Usuarios extends javax.swing.JInternalFrame {
                 icon7MouseEntered(evt);
             }
         });
+        jLayeredPane6.add(icon7);
         icon7.setBounds(0, 0, 23, 20);
-        jLayeredPane6.add(icon7, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         icon8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formularios/triangulo.png"))); // NOI18N
         icon8.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -601,8 +625,8 @@ public class Usuarios extends javax.swing.JInternalFrame {
                 icon8MouseEntered(evt);
             }
         });
+        jLayeredPane7.add(icon8);
         icon8.setBounds(0, 0, 23, 20);
-        jLayeredPane7.add(icon8, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -764,6 +788,8 @@ public class Usuarios extends javax.swing.JInternalFrame {
         contrasena1=passcontraseña.getText();
         contrasena2=passrepitacontraseña.getText();
         nivel=cboniveldeacceso.getSelectedItem().toString();
+        String idc=txtid.getText();
+        String id2="";
         
         ConexionMySQL mysql = new ConexionMySQL();
         Connection cn = mysql.Conectar();
@@ -777,13 +803,22 @@ public class Usuarios extends javax.swing.JInternalFrame {
             }
             else{
                 sSQL2="SELECT usu_tipocedula, usu_cedula, usu_status FROM usuario WHERE CONCAT (usu_tipocedula, usu_cedula) LIKE '%"+cedula+"%'";
+                String sSQL3="SELECT * FROM usuario WHERE usu_id = '%"+idc+"%'";
                 try{
                     Statement st=cn.createStatement();
+                    Statement st2=cn.createStatement();
                     ResultSet rs = st.executeQuery(sSQL2);
+                    ResultSet rs2 = st2.executeQuery(sSQL3);
+                    while (rs2.next()){
+                        id2=rs2.getString("usu_id");
+                    }
                     while(rs.next()){
                         cedula2=rs.getString("usu_tipocedula")+rs.getString("usu_cedula");
                         status2=rs.getString("usu_status");
                     }
+                    if(idc.equals(id2)){
+                        JOptionPane.showMessageDialog(null,"Ya existe un usuario registrado con este Id de acceso");
+                    }else{
                     if(cedula.equals(cedula2) && status2.equals("A")){
                         JOptionPane.showMessageDialog(null,"Ya existe un usuario registrado con este numero de cedula");
                     }
@@ -815,6 +850,7 @@ public class Usuarios extends javax.swing.JInternalFrame {
                                                   if(!contrasena1.equals(contrasena2)){
                                                       JOptionPane.showMessageDialog(null,"Los valores de las contraseñas introducidas no coinciden");
                                                   }
+                                                  
                                                   else{
                                                       sSQL="INSERT INTO usuario (usu_tipocedula, usu_cedula, usu_nombres, usu_apellidos, usu_id, usu_contraseña, usu_nivel, usu_status) VALUES (?,?,?,?,?,?,?,?)";
                                                       try {
@@ -849,10 +885,12 @@ public class Usuarios extends javax.swing.JInternalFrame {
                         }
                     }
                 }
+                }      
                 catch (SQLException ex){
                     JOptionPane.showMessageDialog(null, ex);
                 }  
             }
+            cargar();
         }       
     }//GEN-LAST:event_btnguardarActionPerformed
 
@@ -937,7 +975,7 @@ public class Usuarios extends javax.swing.JInternalFrame {
         }
         if (txtcedula.getText().length() >= 8){
             evt.consume();
-            JOptionPane.showMessageDialog(null, "Solo puede ingresar 8 numeros", "Informacion", 1);
+            
         }
     }//GEN-LAST:event_txtcedulaKeyTyped
 
@@ -947,11 +985,11 @@ public class Usuarios extends javax.swing.JInternalFrame {
         } 
         else {
             evt.consume();
-            JOptionPane.showMessageDialog(null, "En el campo campo Nombres solo prodra ingresar caracteres", "Informacion", 2);
+            
         }
         if (txtnombres.getText().length() >= 25) {
             evt.consume();
-            JOptionPane.showMessageDialog(null, "Solo se pueden ingresar 25 caracteres", "Informacion", 1);
+            
         }
     }//GEN-LAST:event_txtnombresKeyTyped
 
@@ -1086,6 +1124,30 @@ public class Usuarios extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         Maestro.cerrarVentana(this);
     }//GEN-LAST:event_formInternalFrameClosed
+
+    private void txtcedulaAncestorRemoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_txtcedulaAncestorRemoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtcedulaAncestorRemoved
+
+    private void txtidKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtidKeyTyped
+        if (txtid.getText().length() >= 15) {
+            evt.consume();
+            
+        }
+    }//GEN-LAST:event_txtidKeyTyped
+
+    private void passcontraseñaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passcontraseñaKeyTyped
+        if (txtnombres.getText().length() >= 10) {
+            evt.consume();
+            
+        }
+    }//GEN-LAST:event_passcontraseñaKeyTyped
+
+    private void passrepitacontraseñaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passrepitacontraseñaKeyTyped
+       if (txtnombres.getText().length() >= 10) {
+            evt.consume();  
+        }
+    }//GEN-LAST:event_passrepitacontraseñaKeyTyped
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

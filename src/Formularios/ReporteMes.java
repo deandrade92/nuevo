@@ -4,6 +4,23 @@
  */
 package Formularios;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
+
 /**
  *
  * @author Manuel De Andrade
@@ -16,7 +33,16 @@ public class ReporteMes extends javax.swing.JFrame {
     public ReporteMes() {
         initComponents();
         setLocationRelativeTo(null);
+     try {
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/centroodontologico", "root", "");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ReporteMes.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ReporteMes.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
+    Connection con;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -109,8 +135,8 @@ public class ReporteMes extends javax.swing.JFrame {
                     .addComponent(clrfechafinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnaceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnaceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33))
         );
 
@@ -148,11 +174,48 @@ public class ReporteMes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_btnsalirActionPerformed
 
     private void btnaceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaceptarActionPerformed
-        // TODO add your handling code here:
+         String dia = "", mes = "", ano = "", fecha = "";
+
+        dia = clrfechainicio.getSelectedDay();
+        mes =nroMes(Integer.valueOf(clrfechainicio.getSelectedMonth())) ;
+        
+        ano = clrfechainicio.getSelectedYear();
+        fecha = ano + "-" + mes + "-" + dia;
+        
+        try {
+                    String ruta="\\src\\Reportes\\ReporteDiario.jrxml";
+            //cargamos el reporte
+            JasperDesign jasperDesign = JRXmlLoader.load(System.getProperty("user.dir")+ruta);
+            //compilamos el reporte
+            JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
+           //leemos la cedula
+            
+            //creamos el mapa de parametros
+            Map parametros= new HashMap();
+            // configuramos los parametros
+            JOptionPane.showMessageDialog(null,fecha);
+            parametros.put("fechadia", fecha);
+            //Pasamos el reporte con los parametros
+            JasperPrint informe= JasperFillManager.fillReport(jasperReport, parametros,con);
+            //Pasamos el reporte con los parametros
+            //JasperViewer ventanavisor =new JasperViewer(informe);
+            
+            //ventanavisor.setTitle("reporte");
+            //ventanavisor.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            //visualizar sin que se cierre la ventana
+            JasperViewer.viewReport(informe,false,Locale.getDefault());
+
+            //ventanavisor.setVisible(true);
+            //ventanavisor.setDefaultCloseOperation(WIDTH);
+        
+        
+        } catch (Exception ex) {
+            Logger.getLogger(ReporteDia.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnaceptarActionPerformed
 
     /**
@@ -189,6 +252,17 @@ public class ReporteMes extends javax.swing.JFrame {
             }
         });
     }
+    private String nroMes(int nrohist){
+       String numFormateado="",tempo="";
+       int ceros=0;
+       tempo=String.valueOf(nrohist);
+       ceros=2-nrohist;
+       for(int i=0;i<ceros;i++)
+           numFormateado+="0";
+       numFormateado+=tempo;
+   
+       return numFormateado;
+   }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnaceptar;
     private javax.swing.JButton btnsalir;

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 31-01-2014 a las 19:44:29
+-- Tiempo de generación: 01-02-2014 a las 13:42:30
 -- Versión del servidor: 5.5.24-log
 -- Versión de PHP: 5.4.3
 
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `bitacora` (
   `bit_accion` varchar(50) NOT NULL,
   `bit_fechahora` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`bitacora`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=106 ;
 
 --
 -- Volcado de datos para la tabla `bitacora`
@@ -43,7 +43,108 @@ INSERT INTO `bitacora` (`bitacora`, `bit_nombreusuario`, `bit_modulo`, `bit_acci
 (1, 'jesus', 'Registro y Consulta de Pacientes', 'Guardo paciente CI: E-21203413', '2014-01-02 19:12:16'),
 (2, 'jesus', 'Registro y Consulta de Pacientes', 'Guardo paciente CI: V-21203417', '2014-01-02 19:19:16'),
 (3, 'null', 'Registro y Consulta de Pacientes', 'Guardo paciente CI: V-24156088', '2014-01-04 15:28:58'),
-(4, 'null', 'Registro y Consulta de Pacientes', 'Guardo paciente CI: V-12345678', '2014-01-17 12:42:08');
+(4, 'null', 'Registro y Consulta de Pacientes', 'Guardo paciente CI: V-12345678', '2014-01-17 12:42:08'),
+(5, 'null', 'Registro y Consulta de Usuario', 'Consulto Usuario CI: V-2587419 ', '2014-01-31 19:58:15'),
+(6, 'null', 'Registro y Consulta de Usuario', 'Consulto Usuario CI: V-2587419 ', '2014-01-31 20:06:28'),
+(7, 'null', 'Registro y Consulta de Usuario', 'Actualizo Usuario CI: V-8741965 ', '2014-01-31 20:07:03'),
+(8, 'null', 'Registro y Consulta de Usuario', 'Consulto Usuario CI: V-2587419 ', '2014-01-31 20:07:05'),
+(9, 'null', 'Registro y Consulta de Pacientes', 'Guardo paciente CI: V-2158888144', '2014-01-31 22:01:52'),
+(10, 'null', 'Registro y Consulta de Citas', 'Guardo Cita CI: ', '2014-01-31 23:32:57'),
+(11, 'null', 'Registro y Consulta de Usuario', 'Consulto Usuario CI: V-21203411 ', '2014-01-31 23:33:11'),
+(12, 'null', 'Registro y Consulta de Usuario', 'Consulto Usuario CI: V-21203411 ', '2014-01-31 23:36:46'),
+(13, 'null', 'Registro y Consulta de Citas', 'Elimino Cita CI: V-21203411 ', '2014-01-31 23:36:50'),
+(14, 'null', 'Registro y Consulta de Usuario', 'Consulto Usuario CI: V-2587419 ', '2014-01-31 23:38:24'),
+(15, 'null', 'Registro y Consulta de Citas', 'Elimino Cita CI: V-2587419 ', '2014-01-31 23:38:31'),
+(16, 'null', 'Registro y Consulta de Usuario', 'Consulto Usuario CI: V-8741965 ', '2014-01-31 23:39:38'),
+(17, 'null', 'Registro y Consulta de Citas', 'Elimino Cita CI: V-8741965 ', '2014-01-31 23:39:41'),
+(18, 'null', 'Registro y Consulta de Usuario', 'Consulto Usuario CI: null ', '2014-01-31 23:39:52'),
+(19, 'null', 'Registro y Consulta de Citas', 'Guardo Cita CI: ', '2014-02-01 00:04:13'),
+(20, 'null', 'Registro y Consulta de Citas', 'Guardo Cita CI: ', '2014-02-01 00:06:36'),
+(21, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: E-21203413 ', '2014-02-01 00:21:54'),
+(22, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: E-21203413 ', '2014-02-01 00:24:30'),
+(23, 'null', 'Registro y Consulta de Citas', 'Actualizo Cita CI: E-21203413 ', '2014-02-01 00:24:42'),
+(24, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: E-21203413 ', '2014-02-01 00:26:15'),
+(25, 'null', 'Registro y Consulta de Citas', 'Actualizo Cita CI: E-21203413 ', '2014-02-01 00:26:27'),
+(26, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: E-21203413 ', '2014-02-01 00:26:32'),
+(27, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: E-21203413 ', '2014-02-01 00:27:23'),
+(28, 'null', 'Registro y Consulta de Citas', 'Actualizo Cita CI: E-21203413 ', '2014-02-01 00:27:33'),
+(29, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: E-21203413 ', '2014-02-01 00:34:21'),
+(30, 'null', 'Registro y Consulta de Citas', 'Actualizo Cita CI: E-21203413 ', '2014-02-01 00:34:49'),
+(31, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: E-21203413 ', '2014-02-01 00:48:45'),
+(32, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: E-21203413 ', '2014-02-01 00:49:25'),
+(33, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: E-21203413 ', '2014-02-01 00:50:14'),
+(34, 'null', 'Registro y Consulta de Citas', 'Actualizo Cita CI: E-21203413 ', '2014-02-01 00:50:23'),
+(35, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: E-21203413 ', '2014-02-01 00:56:51'),
+(36, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: E-21203413 ', '2014-02-01 00:57:28'),
+(37, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: E-21203413 ', '2014-02-01 00:59:44'),
+(38, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: E-21203413 ', '2014-02-01 01:01:30'),
+(39, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: E-21203413 ', '2014-02-01 01:05:26'),
+(40, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: E-21203413 ', '2014-02-01 01:07:01'),
+(41, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: E-21203413 ', '2014-02-01 01:07:36'),
+(42, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: E-21203413 ', '2014-02-01 01:09:36'),
+(43, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: E-21203413 ', '2014-02-01 01:10:36'),
+(44, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: E-21203413 ', '2014-02-01 01:11:44'),
+(45, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: E-21203413 ', '2014-02-01 01:13:48'),
+(46, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: E-21203413 ', '2014-02-01 01:15:01'),
+(47, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: E-21203413 ', '2014-02-01 01:21:17'),
+(48, 'null', 'Registro y Consulta de Citas', 'Actualizo Cita CI: E-21203413 ', '2014-02-01 01:21:32'),
+(49, 'null', 'Registro y Consulta de Usuario', 'Guardo Usuario CI: V-12346785 ', '2014-02-01 03:27:52'),
+(50, 'null', 'Registro y Consulta de Usuario', 'Elimino Usuario CI: V-12346785 ', '2014-02-01 03:28:35'),
+(51, 'null', 'Registro y Consulta de Usuario', 'Guardo Usuario CI: V-31312313 ', '2014-02-01 03:32:10'),
+(52, 'null', 'Registro y Consulta de Servicios', 'Guardo Servicio: mmmm', '2014-02-01 05:14:29'),
+(53, 'null', 'Registro y Consulta de Servicios', 'Guardo Servicio: mama', '2014-02-01 05:17:31'),
+(54, 'null', 'Registro y Consulta de Servicios', 'Guardo Servicio: qwe', '2014-02-01 05:22:55'),
+(55, 'null', 'Registro y Consulta de Servicios', 'Guardo Servicio: andrade', '2014-02-01 05:29:58'),
+(56, 'null', 'Registro y Consulta de Servicios', 'Guardo Servicio: loli', '2014-02-01 05:36:49'),
+(57, 'null', 'Registro y Consulta de Servicios', 'Guardo Servicio: manuel', '2014-02-01 05:44:59'),
+(58, 'null', 'Registro y Consulta de Servicios', 'Guardo Servicio: manuel', '2014-02-01 05:56:47'),
+(59, 'null', 'Registro y Consulta de Citas', 'Guardo Cita CI: ', '2014-02-01 06:05:47'),
+(60, 'null', 'Registro y Consulta de Citas', 'Guardo Cita CI: ', '2014-02-01 06:06:17'),
+(61, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: null ', '2014-02-01 06:53:59'),
+(62, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: null ', '2014-02-01 06:55:43'),
+(63, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: null ', '2014-02-01 06:55:45'),
+(64, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: null ', '2014-02-01 06:55:51'),
+(65, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: null ', '2014-02-01 06:55:55'),
+(66, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: null ', '2014-02-01 06:56:49'),
+(67, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: null ', '2014-02-01 06:56:51'),
+(68, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: null ', '2014-02-01 06:56:54'),
+(69, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: null ', '2014-02-01 06:56:56'),
+(70, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: null ', '2014-02-01 06:56:59'),
+(71, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: null ', '2014-02-01 06:57:00'),
+(72, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: null ', '2014-02-01 06:57:02'),
+(73, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: null ', '2014-02-01 06:57:12'),
+(74, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: null ', '2014-02-01 07:01:10'),
+(75, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: null ', '2014-02-01 07:03:24'),
+(76, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: null ', '2014-02-01 07:06:04'),
+(77, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: null ', '2014-02-01 07:06:06'),
+(78, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: null ', '2014-02-01 07:06:19'),
+(79, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: null ', '2014-02-01 07:14:17'),
+(80, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: null ', '2014-02-01 07:16:21'),
+(81, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: null ', '2014-02-01 07:17:21'),
+(82, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: null ', '2014-02-01 07:17:26'),
+(83, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: null ', '2014-02-01 07:17:34'),
+(84, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: null ', '2014-02-01 07:19:21'),
+(85, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: null ', '2014-02-01 07:19:26'),
+(86, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: null ', '2014-02-01 07:19:29'),
+(87, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: null ', '2014-02-01 07:24:52'),
+(88, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: null ', '2014-02-01 07:25:22'),
+(89, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: null ', '2014-02-01 07:26:16'),
+(90, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: null ', '2014-02-01 07:26:24'),
+(91, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: null ', '2014-02-01 07:26:26'),
+(92, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: null ', '2014-02-01 07:26:27'),
+(93, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: null ', '2014-02-01 07:26:37'),
+(94, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: null ', '2014-02-01 07:26:44'),
+(95, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: null ', '2014-02-01 07:26:46'),
+(96, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: null ', '2014-02-01 07:26:55'),
+(97, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: null ', '2014-02-01 07:28:25'),
+(98, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: null ', '2014-02-01 07:28:33'),
+(99, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: null ', '2014-02-01 07:28:39'),
+(100, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: null ', '2014-02-01 07:28:43'),
+(101, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: null ', '2014-02-01 07:28:45'),
+(102, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: V-21203413 ', '2014-02-01 07:53:21'),
+(103, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: null ', '2014-02-01 07:55:23'),
+(104, 'null', 'Registro y Consulta de Citas', 'Guardo Cita CI: ', '2014-02-01 07:55:33'),
+(105, 'null', 'Registro y Consulta de Citas', 'Consulto Cita CI: V-20189150 ', '2014-02-01 07:55:40');
 
 -- --------------------------------------------------------
 
@@ -59,7 +160,7 @@ CREATE TABLE IF NOT EXISTS `cita` (
   `cit_apellidos` varchar(35) NOT NULL,
   `cit_fecha` date NOT NULL,
   PRIMARY KEY (`cita`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
 
 --
 -- Volcado de datos para la tabla `cita`
@@ -68,8 +169,11 @@ CREATE TABLE IF NOT EXISTS `cita` (
 INSERT INTO `cita` (`cita`, `cit_tipocedula`, `cit_cedula`, `cit_nombres`, `cit_apellidos`, `cit_fecha`) VALUES
 (7, 'V-', '12345678', 'manuel', 'aesefes', '2002-04-17'),
 (8, 'V-', '21203413', 'efsef', 'sefsefes', '2014-01-14'),
-(9, 'V-', '8741965', 'awdawdwadaw', 'wdadada', '2014-01-24'),
-(10, 'V-', '2587419', 'esfsf', 'esfsfs', '2014-01-24');
+(12, 'V-', '21203413', 'efsef', 'sefsefes', '2014-01-30'),
+(13, 'E-', '21203413', 'efsef', 'sefsefes', '2014-02-06'),
+(14, 'V-', '21203411', 'manuel alejandro', 'molina', '2014-02-18'),
+(15, 'V-', '2587419', 'esfsf', 'esfsfs', '2014-01-08'),
+(16, 'V-', '20189150', 'luis Alberto', 'Soto Ocanto', '2014-02-01');
 
 -- --------------------------------------------------------
 
@@ -179,7 +283,7 @@ CREATE TABLE IF NOT EXISTS `paciente` (
   `pac_extensioncorreo` varchar(4) CHARACTER SET latin1 NOT NULL,
   `pac_status` varchar(1) CHARACTER SET latin1 NOT NULL,
   PRIMARY KEY (`pac_paciente`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=23 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=24 ;
 
 --
 -- Volcado de datos para la tabla `paciente`
@@ -197,7 +301,8 @@ INSERT INTO `paciente` (`pac_paciente`, `pac_tipocedula`, `pac_cedula`, `pac_nom
 (19, 'V-', '21203417', 'esfsefsefse', 'wdawdawd', 'M', '1987-02-11', '26', 'efesfesfesf', '', '', '', '', '', '', '', '', '', 'A'),
 (20, 'V-', '24156088', 'ariany crisel', 'rodriguez rangel', 'F', '1992-09-07', '21', 'ruezga sur', '', '', '0426', '3527278', '0251', '9296475', 'ariany', 'hotmail', 'com', 'A'),
 (21, 'V-', '12345678', 'manuel', 'aesefes', 'M', '2006-03-17', '8', 'sbfhibeshbflskf', 'sfesfs', 'aesefes', '0414', '1597862', '', '', 'esfsefsefsef', 'hotmail', 'com', 'A'),
-(22, 'V-', '20189150', 'luis Alberto', 'Soto Ocanto', 'M', '1992-02-14', '88', 'carrrera 6 entre calles 5 y 6', '', '', '0426', '2574359', '', '', '', '', '', 'A');
+(22, 'V-', '20189150', 'luis Alberto', 'Soto Ocanto', 'M', '1992-02-14', '88', 'carrrera 6 entre calles 5 y 6', '', '', '0426', '2574359', '', '', '', '', '', 'A'),
+(23, 'V-', '2158888144', 'wadwadawdaw', 'wdawdwa', 'M', '2005-01-13', '9', 'sawfawfwafawf', '', '', '', '', '', '', '', '', '', 'A');
 
 -- --------------------------------------------------------
 
@@ -308,23 +413,24 @@ INSERT INTO `pregunta_orl` (`pre_id5`, `pre_descripcion`, `pre_cuando`, `pre_ope
 
 CREATE TABLE IF NOT EXISTS `servicio` (
   `servicio` int(11) NOT NULL AUTO_INCREMENT,
-  `ser_nombre` int(11) NOT NULL,
-  `ser_precio` int(11) NOT NULL,
-  `ser_descripcion` int(11) NOT NULL,
-  `ser_status` int(11) NOT NULL,
+  `ser_nombre` varchar(30) NOT NULL,
+  `ser_precio` float NOT NULL,
+  `ser_descripcion` varchar(45) NOT NULL,
+  `ser_status` varchar(1) NOT NULL,
   PRIMARY KEY (`servicio`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Volcado de datos para la tabla `servicio`
 --
 
 INSERT INTO `servicio` (`servicio`, `ser_nombre`, `ser_precio`, `ser_descripcion`, `ser_status`) VALUES
-(1, 0, 123, 0, 0),
-(2, 0, 123, 0, 0),
-(3, 0, 1500, 0, 0),
-(4, 0, 800, 0, 0),
-(5, 0, 477, 0, 0);
+(1, 'mmmm', 150, 'qwertyuiop', 'A'),
+(2, 'mama', 150, 'wertyu', 'A'),
+(3, 'qwe', 120, 'qwe', 'A'),
+(4, 'andrade', 150, 'tyhjkl', 'A'),
+(5, 'loli', 150, 'wertyui', 'A'),
+(6, 'manuel', 12, 'afefs', 'A');
 
 -- --------------------------------------------------------
 
@@ -343,7 +449,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `usu_nivel` varchar(1) NOT NULL,
   `usu_status` varchar(1) NOT NULL,
   PRIMARY KEY (`usuario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Volcado de datos para la tabla `usuario`
@@ -357,7 +463,7 @@ INSERT INTO `usuario` (`usuario`, `usu_tipocedula`, `usu_cedula`, `usu_nombres`,
 (5, 'V-', '00000000', 'a', 'c', 'v', '12', '1', 'A'),
 (6, 'V-', '24156088', 'ariany crisel', 'rodriguez rangel', 'ary', '12345', '1', 'A'),
 (7, 'V-', '21203411', 'efesf', 'wadada', 'sefefesf', '123', '1', 'A'),
-(8, 'V-', '12345678', 'root', 'toor', 'root', '12345', '1', 'A');
+(8, 'V-', '12345678', 'root', 'toor', 'root', '12345', '0', 'A');
 
 -- --------------------------------------------------------
 

@@ -29,7 +29,7 @@ DefaultTableModel modelo;
          String ced="", ced1="", nom="", ape="";
     String sSQL = "";
         String[] titulo={"Cedula","Nombre","Apellido"};
-        String[] registro= new String[3];
+        String[] registro= new String[4];
        
         
         modelo=new DefaultTableModel(null,titulo);
@@ -42,17 +42,17 @@ DefaultTableModel modelo;
         else{ 
         modelo = (DefaultTableModel) tblbusqueda.getModel();
         String id = (String) modelo.getValueAt(j,0);
-        sSQL="SELECT pac_cedula, pac_nombres ,pac_apellidos  FROM paciente WHERE  CONCAT (pac_nombres,'',pac_cedula,'',pac_apellidos) LIKE '%"+id+"%'";
+        sSQL="SELECT pac_tipocedula,pac_cedula, pac_nombres ,pac_apellidos  FROM paciente WHERE  CONCAT (pac_tipocedula,'',pac_nombres,'',pac_cedula,'',pac_apellidos) LIKE '%"+id+"%'";
         }       
          try {
              Statement st=cn.createStatement();
              ResultSet rs = st.executeQuery(sSQL); 
              
              while(rs.next()){
-                
-                 registro[0]=rs.getString("pac_cedula");           
-                 registro[1]=rs.getString("pac_nombres");
-                 registro[2]=rs.getString("pac_apellidos");
+                registro[0]=rs.getString("pac_tipocedula");
+                 registro[1]=rs.getString("pac_cedula");           
+                 registro[2]=rs.getString("pac_nombres");
+                 registro[3]=rs.getString("pac_apellidos");
        
              }
              tblbusqueda.setModel(modelo);
@@ -63,11 +63,11 @@ DefaultTableModel modelo;
         } 
                  cita.txtcedula.setText("");
                  cita.txtnombres.setText("");
-                 cita.txtapellidos.setText("");   
-                 cita.txtcedula.setText(registro[0]);
-                 cita.txtnombres.setText(registro[1]);
-                 cita.txtapellidos.setText(registro[2]);
-                 
+                 cita.txtapellidos.setText("");
+                 cita.cbocedula.setSelectedItem(registro[0]);
+                 cita.txtcedula.setText(registro[1]);
+                 cita.txtnombres.setText(registro[2]);
+                 cita.txtapellidos.setText(registro[3]);
                  this.dispose();
 
         
@@ -88,7 +88,7 @@ DefaultTableModel modelo;
              ResultSet rs = st.executeQuery(sSQL); 
              
              while(rs.next()){
-                 registro[0]=rs.getString("pac_cedula");           
+                 registro[0]=rs.getString("pac_cedula");
                  registro[1]=rs.getString("pac_nombres");
                  registro[2]=rs.getString("pac_apellidos");
               modelo.addRow(registro);
@@ -196,7 +196,7 @@ DefaultTableModel modelo;
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
         );
 
         btncancelar.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
@@ -220,21 +220,24 @@ DefaultTableModel modelo;
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(56, 56, 56)
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Txtpalabara, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(126, 126, 126)
+                                .addComponent(btnaceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btncancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 68, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Txtpalabara, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(74, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnaceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btncancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(129, 129, 129))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -246,10 +249,10 @@ DefaultTableModel modelo;
                 .addGap(18, 18, 18)
                 .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnaceptar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btncancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btncancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnaceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(14, 14, 14))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

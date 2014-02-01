@@ -429,6 +429,8 @@
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="clrfechabuscar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="clrfechabuscar1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -440,6 +442,7 @@
                           <Group type="103" groupAlignment="2" attributes="0">
                               <Component id="jLabel4" alignment="2" min="-2" max="-2" attributes="0"/>
                               <Component id="clrfechabuscar" alignment="2" min="-2" max="-2" attributes="0"/>
+                              <Component id="clrfechabuscar1" alignment="2" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jScrollPane1" min="-2" pref="217" max="-2" attributes="0"/>
@@ -479,6 +482,8 @@
                   </Properties>
                 </Component>
                 <Component class="org.gui.JCalendarCombo" name="clrfechabuscar">
+                </Component>
+                <Component class="com.toedter.calendar.JDateChooser" name="clrfechabuscar1">
                 </Component>
               </SubComponents>
             </Container>

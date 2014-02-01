@@ -7,10 +7,10 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
-public class CambioDeStatus extends javax.swing.JFrame {
+public class CambioDeStatusSer extends javax.swing.JFrame {
 
   
-    public CambioDeStatus() {
+    public CambioDeStatusSer() {
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -50,10 +50,10 @@ public class CambioDeStatus extends javax.swing.JFrame {
         });
 
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
-        jLabel2.setText("El paciente que desea registrar ya se encuntra en el sistema, ");
+        jLabel2.setText("El servicio que desea registrar ya se encuntra en el sistema, ");
 
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
-        jLabel3.setText("pero se encuentra inactivo. ¿Desea usted activar el paciente nuevamente?");
+        jLabel3.setText("pero se encuentra inactivo. ¿Desea usted activar el servicio nuevamente?");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -127,21 +127,20 @@ public class CambioDeStatus extends javax.swing.JFrame {
     }//GEN-LAST:event_btnnoActionPerformed
 
     private void btnsiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsiActionPerformed
-        String cedula="",ced1="", ced2="",sSQL="";
+        String nombre="", sSQL="";
         
-        ced1=Paciente.cbocedula.getSelectedItem().toString();
-        ced2=Paciente.txtcedula.getText();
-        cedula=ced1+ced2;
+        nombre=Servicios.txtnombre.getText();
+        
         
         ConexionMySQL mysql =new ConexionMySQL();
         Connection cn=mysql.Conectar();
             
-        sSQL="UPDATE paciente SET pac_status='A' WHERE CONCAT (pac_tipocedula, pac_cedula)='"+cedula+"'";
+        sSQL="UPDATE servicio SET ser_status='A' WHERE ser_nombre='"+nombre+"'";
         try {
             PreparedStatement pst=cn.prepareStatement(sSQL);
             int n=pst.executeUpdate();
             if(n>0){
-                 JOptionPane.showMessageDialog(null,"Paciente activado Satisfactoriamente");
+                 JOptionPane.showMessageDialog(null,"Servicio activado Satisfactoriamente");
                  this.dispose();
             }      
         } 
@@ -155,7 +154,7 @@ public class CambioDeStatus extends javax.swing.JFrame {
        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CambioDeStatus().setVisible(true);
+                new CambioDeStatusSer().setVisible(true);
             }
         });
     }

@@ -614,6 +614,7 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtdireccionActionPerformed"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtdireccionKeyTyped"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel12">
@@ -752,10 +753,10 @@
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="5">
                     <StringItem index="0" value="Seleccione"/>
-                    <StringItem index="1" value="hotmail"/>
-                    <StringItem index="2" value="outlock"/>
-                    <StringItem index="3" value="gmail"/>
-                    <StringItem index="4" value="yahoo"/>
+                    <StringItem index="1" value="@hotmail"/>
+                    <StringItem index="2" value="@outlook"/>
+                    <StringItem index="3" value="@gmail"/>
+                    <StringItem index="4" value="@yahoo"/>
                   </StringArray>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value="Indique tipo de correo. Ejemplo: @gmail"/>
@@ -772,8 +773,8 @@
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="3">
                     <StringItem index="0" value="Seleccione"/>
-                    <StringItem index="1" value="com"/>
-                    <StringItem index="2" value="es"/>
+                    <StringItem index="1" value=".com"/>
+                    <StringItem index="2" value=".es"/>
                   </StringArray>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value="Indique la extension del correo. Ejemplo: .com"/>

@@ -2,6 +2,8 @@
 package Formularios;
 
 import BaseDeDatos.ConexionMySQL;
+import static Formularios.Paciente.txtcedula;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,13 +15,32 @@ import javax.swing.table.DefaultTableModel;
 public class Servicios extends javax.swing.JInternalFrame {
     String[] titulo={"Nombre","Precio","Descripcion"};
     DefaultTableModel modelo;
+    public int nivelU=Acceso.getNivelU();
 
     public Servicios() {
         initComponents();
         modelo=new DefaultTableModel(null,titulo);
         tblservicio.setModel(modelo);
         inhabilitariconos();
+        cargar();
+        Deshabilitar();
+        Habilitar();
         //setLocationRelativeTo(null);
+    }
+    private void Habilitar() {
+
+        if (nivelU == 0) {
+            btneliminar.setEnabled(true);
+            //mnuMantenimiento.setEnabled(true);
+        }
+    }
+
+    private void Deshabilitar() {
+
+        if (nivelU == 1) {
+            btneliminar.setEnabled(false);
+            //mnuMantenimiento.setEnabled(false);
+        }
     }
     void cargar(){
         String[] registro= new String[3];
@@ -98,7 +119,7 @@ public class Servicios extends javax.swing.JInternalFrame {
     void CargarTablaServicioPorNombre(String nombre) {
         String[] registro= new String[3];
         String status="",sSQL ="";
-        
+        modelo=new DefaultTableModel(null,titulo);
         ConexionMySQL mysql =new ConexionMySQL();
         Connection cn=mysql.Conectar();
         
@@ -121,7 +142,7 @@ public class Servicios extends javax.swing.JInternalFrame {
                  }
                  else{
                      JOptionPane.showMessageDialog(null,"No se encuentra ningun servicio registrado con el nombre que introdujo");
-                 } 
+                 } tblservicio.setModel(modelo);
              } 
          }
          catch (SQLException ex) {
@@ -154,11 +175,11 @@ public class Servicios extends javax.swing.JInternalFrame {
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblservicio = new javax.swing.JTable();
-        jLayeredPane1 = new javax.swing.JLayeredPane();
+        jLayeredPane4 = new javax.swing.JLayeredPane();
         icon1 = new javax.swing.JLabel();
-        jLayeredPane2 = new javax.swing.JLayeredPane();
+        jLayeredPane1 = new javax.swing.JLayeredPane();
         icon2 = new javax.swing.JLabel();
-        jLayeredPane3 = new javax.swing.JLayeredPane();
+        jLayeredPane2 = new javax.swing.JLayeredPane();
         icon3 = new javax.swing.JLabel();
 
         jPopupMenu1.setComponentPopupMenu(jPopupMenu1);
@@ -317,12 +338,22 @@ public class Servicios extends javax.swing.JInternalFrame {
 
         txtnombre.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         txtnombre.setToolTipText("Introduzca el nombre del nuevo servicio que desea ofrecer. Ejemplo: Limpieza dental");
+        txtnombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtnombreKeyTyped(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         jLabel2.setText("Precio");
 
         txtprecio.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         txtprecio.setToolTipText("Introduzca el costo del  servicio que desea ofrecer. Ejemplo: 9999");
+        txtprecio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtprecioKeyTyped(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         jLabel4.setText("C/U");
@@ -332,6 +363,11 @@ public class Servicios extends javax.swing.JInternalFrame {
 
         txtdescripcion.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         txtdescripcion.setToolTipText("Introduzca la descripcion del servicio que desea ofrecer");
+        txtdescripcion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtdescripcionKeyTyped(evt);
+            }
+        });
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -365,14 +401,66 @@ public class Servicios extends javax.swing.JInternalFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        icon1.setBounds(0, 0, 0, 0);
-        jLayeredPane1.add(icon1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        icon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formularios/triangulo.png"))); // NOI18N
+        icon1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                icon1MouseEntered(evt);
+            }
+        });
 
-        icon2.setBounds(0, 0, 0, 0);
-        jLayeredPane2.add(icon2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        javax.swing.GroupLayout jLayeredPane4Layout = new javax.swing.GroupLayout(jLayeredPane4);
+        jLayeredPane4.setLayout(jLayeredPane4Layout);
+        jLayeredPane4Layout.setHorizontalGroup(
+            jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jLayeredPane4Layout.createSequentialGroup()
+                .addComponent(icon1)
+                .addGap(0, 20, Short.MAX_VALUE))
+        );
+        jLayeredPane4Layout.setVerticalGroup(
+            jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(icon1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+        );
+        jLayeredPane4.setLayer(icon1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        icon3.setBounds(0, 0, 0, 0);
-        jLayeredPane3.add(icon3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        icon2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formularios/triangulo.png"))); // NOI18N
+        icon2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                icon2MouseEntered(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
+        jLayeredPane1.setLayout(jLayeredPane1Layout);
+        jLayeredPane1Layout.setHorizontalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(icon2)
+        );
+        jLayeredPane1Layout.setVerticalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                .addComponent(icon2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 1, Short.MAX_VALUE))
+        );
+        jLayeredPane1.setLayer(icon2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        icon3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Formularios/triangulo.png"))); // NOI18N
+        icon3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                icon3MouseEntered(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jLayeredPane2Layout = new javax.swing.GroupLayout(jLayeredPane2);
+        jLayeredPane2.setLayout(jLayeredPane2Layout);
+        jLayeredPane2Layout.setHorizontalGroup(
+            jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(icon3)
+        );
+        jLayeredPane2Layout.setVerticalGroup(
+            jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(icon3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        jLayeredPane2.setLayer(icon3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -390,47 +478,56 @@ public class Servicios extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLayeredPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtdescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(2, 2, 2)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLayeredPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtprecio, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtprecio, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1)
-                        .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel2)
-                        .addComponent(txtprecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel4))
-                    .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jLayeredPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                            .addGap(38, 38, 38)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel1)
+                                .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel2)
+                                .addComponent(txtprecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel4)))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGap(23, 23, 23)
+                            .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel5)
                         .addComponent(txtdescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLayeredPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
+                    .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -475,9 +572,7 @@ public class Servicios extends javax.swing.JInternalFrame {
        
        nombre=txtnombre.getText();
        
-       if(nombre.equals("")){
-           CargarTablaServicio();
-       }
+      
        if(!nombre.equals("")){
            CargarTablaServicioPorNombre(nombre);
        }
@@ -540,6 +635,7 @@ public class Servicios extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null,ex);
         }
         }
+        cargar();
         
     }//GEN-LAST:event_btneliminarActionPerformed
 
@@ -561,17 +657,21 @@ public class Servicios extends javax.swing.JInternalFrame {
             icon1.setVisible(true);
         }
         else{
-           sSQL2="SELECT ser_nombre FROM servicio WHERE ser_nombre LIKE '%"+nombre+"%'";
-       }
-                try{
-                    Statement st=cn.createStatement();
-                    ResultSet rs = st.executeQuery(sSQL2);
-                    while(rs.next()){
-                        nombrev=rs.getString("ser_nombre");
-                        status2=rs.getString("ser_status");
+           sSQL2="SELECT ser_nombre, ser_status FROM servicio WHERE ser_nombre like '"+nombre+"'";
+           
+           try{
+               Statement st=cn.createStatement();
+               ResultSet rs = st.executeQuery(sSQL2);
+               while(rs.next()){
+                   nombrev=rs.getString("ser_nombre");
+                   status2=rs.getString("ser_status");
                     }
-                    if(nombre.equals(nombrev)){
+                    if(nombre.equals(nombrev) && status.equals("A")){
                         JOptionPane.showMessageDialog(null,"Ya existe un servicio registrado con este mismo nombre");
+                    }
+                    else{
+                    if(nombre.equals(nombrev) && !status2.equals("A")){
+                        new CambioDeStatusSer().setVisible(true);
                     }
                     else{
                         if(precio.equals("")){
@@ -583,6 +683,7 @@ public class Servicios extends javax.swing.JInternalFrame {
                             }
                             else{
                                 sSQL="INSERT INTO servicio (ser_nombre, ser_precio, ser_descripcion, ser_status) VALUES (?,?,?,?)";
+                               
                                 try {
                                     PreparedStatement pst=cn.prepareStatement(sSQL);
                                     pst.setString(1, nombre);
@@ -606,9 +707,12 @@ public class Servicios extends javax.swing.JInternalFrame {
                         }
                     }
                 }
+           }
                 catch(SQLException ex){
                     JOptionPane.showMessageDialog(null,ex);
                 }
+       }
+       cargar();
     }//GEN-LAST:event_btnguardarActionPerformed
 
     private void mneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mneditarActionPerformed
@@ -648,6 +752,54 @@ public class Servicios extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         Maestro.cerrarVentana(this);
     }//GEN-LAST:event_formInternalFrameClosed
+
+    private void txtnombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnombreKeyTyped
+        char caracter = evt.getKeyChar();//Validacion del campo nombre
+        if (caracter >= 'a' && caracter <= 'z' || caracter >= 'A' && caracter <= 'Z' || caracter == 8 || caracter == ' ' || caracter == KeyEvent.VK_BACK_SPACE || caracter == KeyEvent.VK_CAPS_LOCK || caracter == KeyEvent.VK_SHIFT) {
+        } 
+        else {
+            evt.consume();
+        }
+        if (txtnombre.getText().length() >= 25) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtnombreKeyTyped
+
+    private void txtdescripcionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtdescripcionKeyTyped
+        char caracter = evt.getKeyChar();//Validacion del campo nombre
+        if (caracter >= 'a' && caracter <= 'z' || caracter >= 'A' && caracter <= 'Z' || caracter == 8 || caracter == ' ' || caracter == KeyEvent.VK_BACK_SPACE || caracter == KeyEvent.VK_CAPS_LOCK || caracter == KeyEvent.VK_SHIFT) {
+        } 
+        else {
+            evt.consume();
+        }
+        if (txtdescripcion.getText().length() >= 50) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtdescripcionKeyTyped
+
+    private void txtprecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtprecioKeyTyped
+        char caracter = evt.getKeyChar();//Validacion del campo cedula
+        if (caracter >= '0' && caracter <= '9' || caracter == 8 || caracter == KeyEvent.VK_BACK_SPACE || caracter == KeyEvent.VK_CAPS_LOCK || caracter == KeyEvent.VK_SHIFT) {
+        } 
+        else {
+            evt.consume();
+        }
+        if (txtprecio.getText().length() >=9) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtprecioKeyTyped
+
+    private void icon1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon1MouseEntered
+        JOptionPane.showMessageDialog(null,"No especifico el NOMBRE del servicio", "informacion", 2);
+    }//GEN-LAST:event_icon1MouseEntered
+
+    private void icon2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon2MouseEntered
+         JOptionPane.showMessageDialog(null,"No especifico el PRECIO del servicio", "informacion", 2);
+    }//GEN-LAST:event_icon2MouseEntered
+
+    private void icon3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon3MouseEntered
+         JOptionPane.showMessageDialog(null,"No especifico la DESCRIPCION del servicio", "informacion", 2);
+    }//GEN-LAST:event_icon3MouseEntered
 
     
     public static void main(String args[]) {
@@ -697,7 +849,7 @@ public class Servicios extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JLayeredPane jLayeredPane2;
-    private javax.swing.JLayeredPane jLayeredPane3;
+    private javax.swing.JLayeredPane jLayeredPane4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -707,7 +859,7 @@ public class Servicios extends javax.swing.JInternalFrame {
     private javax.swing.JMenuItem mneditar;
     private javax.swing.JTable tblservicio;
     private javax.swing.JTextField txtdescripcion;
-    private javax.swing.JTextField txtnombre;
+    public static javax.swing.JTextField txtnombre;
     private javax.swing.JTextField txtprecio;
     // End of variables declaration//GEN-END:variables
 }

@@ -144,12 +144,13 @@ public class Historial extends javax.swing.JInternalFrame {
         rbtntoseos = new javax.swing.JRadioButton();
         rbtndcerebral = new javax.swing.JRadioButton();
         rbtnpemocionales = new javax.swing.JRadioButton();
+        jPanel6 = new javax.swing.JPanel();
         btnguardar = new javax.swing.JButton();
-        btncancelar = new javax.swing.JButton();
-        btnactualizar = new javax.swing.JButton();
         btnlimpiar = new javax.swing.JButton();
-        btneliminar = new javax.swing.JButton();
         btnbuscar = new javax.swing.JButton();
+        btnactualizar = new javax.swing.JButton();
+        btneliminar = new javax.swing.JButton();
+        btncancelar = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -178,41 +179,57 @@ public class Historial extends javax.swing.JInternalFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
 
-        jPanel3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Datos del Paciente");
         jLabel1.setFocusable(false);
 
+        jLabel2.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         jLabel2.setText("Nombre:");
         jLabel2.setFocusable(false);
 
+        jLabel3.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         jLabel3.setText("Edad:");
         jLabel3.setFocusable(false);
 
+        jLabel4.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         jLabel4.setText("Sexo:");
         jLabel4.setFocusable(false);
 
+        jLabel5.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         jLabel5.setText("Domicilio Particular:");
         jLabel5.setFocusable(false);
 
+        jLabel6.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         jLabel6.setText("Telefono:");
         jLabel6.setFocusable(false);
 
         txtNombre.setEditable(false);
+        txtNombre.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         txtNombre.setFocusable(false);
 
+        cmbSexo.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         cmbSexo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Hombre", "Mujer" }));
         cmbSexo.setFocusable(false);
 
         txtEdad.setEditable(false);
+        txtEdad.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         txtEdad.setFocusable(false);
 
         txtTelefono.setEditable(false);
+        txtTelefono.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         txtTelefono.setFocusable(false);
 
+        jLabel7.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         jLabel7.setText("Nro de Historia:");
 
+        txtcedula.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         txtcedula.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtcedulaFocusGained(evt);
@@ -224,9 +241,11 @@ public class Historial extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel26.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         jLabel26.setText("Cedula:");
         jLabel26.setFocusable(false);
 
+        txtNroHist.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         txtNroHist.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNroHistActionPerformed(evt);
@@ -250,6 +269,7 @@ public class Historial extends javax.swing.JInternalFrame {
         });
 
         txtDomicilio.setEditable(false);
+        txtDomicilio.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         txtDomicilio.setFocusable(false);
 
         cmbTCedPac.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "V-", "E-" }));
@@ -267,16 +287,14 @@ public class Historial extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel1))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel3Layout.createSequentialGroup()
-                                            .addGap(95, 95, 95)
-                                            .addComponent(jLabel2))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                            .addContainerGap()
-                                            .addComponent(jLabel6)))
                                     .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addGap(95, 95, 95)
+                                        .addComponent(jLabel2))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                                         .addContainerGap()
-                                        .addComponent(jLabel5)))
+                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtNombre)
@@ -342,8 +360,10 @@ public class Historial extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        lblEstPorque.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         lblEstPorque.setText("¿Por qué?");
         lblEstPorque.setFocusable(false);
 
@@ -355,6 +375,7 @@ public class Historial extends javax.swing.JInternalFrame {
         });
 
         txtEstDes.setColumns(20);
+        txtEstDes.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         txtEstDes.setRows(5);
         txtEstDes.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -363,9 +384,11 @@ public class Historial extends javax.swing.JInternalFrame {
         });
         jtxtEstDes.setViewportView(txtEstDes);
 
+        jLabel10.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         jLabel10.setText("¿Ha estado bajo medicacion en los ultimos años, aparte de los examenes de rutina?");
         jLabel10.setFocusable(false);
 
+        jLabel12.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         jLabel12.setText("¿Toma medicamentos Actualmente?");
         jLabel12.setFocusable(false);
 
@@ -376,10 +399,12 @@ public class Historial extends javax.swing.JInternalFrame {
             }
         });
 
+        lblMedCuales.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         lblMedCuales.setText("¿Cuales?");
         lblMedCuales.setFocusable(false);
 
         txtMedDes.setColumns(20);
+        txtMedDes.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         txtMedDes.setRows(5);
         txtMedDes.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -388,18 +413,22 @@ public class Historial extends javax.swing.JInternalFrame {
         });
         jtxtMedDes.setViewportView(txtMedDes);
 
+        jLabel14.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         jLabel14.setText("¿Ronca cuando duerme?");
         jLabel14.setFocusable(false);
 
+        txtDolDes.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         txtDolDes.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtDolDesKeyTyped(evt);
             }
         });
 
+        jLabel15.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         jLabel15.setText("Es alérgico a:");
         jLabel15.setFocusable(false);
 
+        rbtnPolvo.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         rbtnPolvo.setText("Polvo");
         rbtnPolvo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -407,6 +436,7 @@ public class Historial extends javax.swing.JInternalFrame {
             }
         });
 
+        rbtnMed.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         rbtnMed.setText("Medicamentos");
         rbtnMed.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -414,6 +444,7 @@ public class Historial extends javax.swing.JInternalFrame {
             }
         });
 
+        rbtnAlimentos.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         rbtnAlimentos.setText("alimentos");
         rbtnAlimentos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -421,6 +452,7 @@ public class Historial extends javax.swing.JInternalFrame {
             }
         });
 
+        txtAlerDes.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         txtAlerDes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtAlerDesActionPerformed(evt);
@@ -432,9 +464,11 @@ public class Historial extends javax.swing.JInternalFrame {
             }
         });
 
+        rbtnOtros.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         rbtnOtros.setText("Otros:");
         rbtnOtros.setFocusable(false);
 
+        jLabel17.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         jLabel17.setText("¿Qué toma normalmente para el dolor de cabeza?");
         jLabel17.setFocusable(false);
 
@@ -445,6 +479,7 @@ public class Historial extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel18.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         jLabel18.setText("¿Respira por la boca?");
         jLabel18.setFocusable(false);
 
@@ -462,6 +497,7 @@ public class Historial extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel19.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         jLabel19.setText("¿Se resfria con frecuencia?");
         jLabel19.setFocusable(false);
 
@@ -472,6 +508,7 @@ public class Historial extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel20.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         jLabel20.setText("¿Sufre de agmigdalitis o sinussitis?");
         jLabel20.setFocusable(false);
 
@@ -483,6 +520,7 @@ public class Historial extends javax.swing.JInternalFrame {
         });
 
         txtMastDes.setColumns(20);
+        txtMastDes.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         txtMastDes.setRows(5);
         txtMastDes.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -491,6 +529,7 @@ public class Historial extends javax.swing.JInternalFrame {
         });
         jtxtMastDes.setViewportView(txtMastDes);
 
+        lblMastPorque.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         lblMastPorque.setText("¿Porqué?");
         lblMastPorque.setFocusable(false);
 
@@ -501,9 +540,11 @@ public class Historial extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel22.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         jLabel22.setText("¿Tiene dificultad para masticar o tragar?");
         jLabel22.setFocusable(false);
 
+        jLabel23.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         jLabel23.setText("¿Ha sido tratado por un alergeologo o especialistas del oido, nariz o garganta ?");
         jLabel23.setFocusable(false);
 
@@ -514,10 +555,12 @@ public class Historial extends javax.swing.JInternalFrame {
             }
         });
 
+        lblOrlPorque.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         lblOrlPorque.setText("¿Porqué?");
         lblOrlPorque.setFocusable(false);
 
         txtOrlDes.setColumns(20);
+        txtOrlDes.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         txtOrlDes.setRows(5);
         txtOrlDes.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -526,6 +569,7 @@ public class Historial extends javax.swing.JInternalFrame {
         });
         jtxtOrlDes.setViewportView(txtOrlDes);
 
+        rbtnCirugia.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         rbtnCirugia.setText("Cirugia nasal");
         rbtnCirugia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -533,6 +577,7 @@ public class Historial extends javax.swing.JInternalFrame {
             }
         });
 
+        rbtnAmigd.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         rbtnAmigd.setText("Amigdalectomía");
         rbtnAmigd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -540,6 +585,7 @@ public class Historial extends javax.swing.JInternalFrame {
             }
         });
 
+        rbtnAdenoi.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         rbtnAdenoi.setText("Adenoidectomía");
         rbtnAdenoi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -549,6 +595,7 @@ public class Historial extends javax.swing.JInternalFrame {
 
         fchOrl.setOpaque(false);
 
+        lblOrlCuando.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         lblOrlCuando.setText("¿cuando?");
         lblOrlCuando.setFocusable(false);
 
@@ -647,9 +694,9 @@ public class Historial extends javax.swing.JInternalFrame {
                         .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jLayeredPane1Layout.createSequentialGroup()
                                 .addComponent(jLabel20)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(tbtnAmigd)
-                                .addGap(115, 115, 115))
+                                .addGap(133, 133, 133))
                             .addGroup(jLayeredPane1Layout.createSequentialGroup()
                                 .addComponent(cmbResCuando, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
@@ -768,13 +815,16 @@ public class Historial extends javax.swing.JInternalFrame {
         jLayeredPane1.setLayer(fchOrl, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(lblOrlCuando, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
+        jLabel8.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Historia Médica");
         jLabel8.setFocusable(false);
 
+        jLabel9.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         jLabel9.setText("Ha padecido alguna vez:");
         jLabel9.setFocusable(false);
 
+        rbtnasma.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         rbtnasma.setText("Asma");
         rbtnasma.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -782,6 +832,7 @@ public class Historial extends javax.swing.JInternalFrame {
             }
         });
 
+        rbtndiabetes.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         rbtndiabetes.setText("Diabetes");
         rbtndiabetes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -789,6 +840,7 @@ public class Historial extends javax.swing.JInternalFrame {
             }
         });
 
+        rbtnanemia.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         rbtnanemia.setText("Anemia");
         rbtnanemia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -796,6 +848,7 @@ public class Historial extends javax.swing.JInternalFrame {
             }
         });
 
+        rbtnherpes.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         rbtnherpes.setText("Herpes");
         rbtnherpes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -803,6 +856,7 @@ public class Historial extends javax.swing.JInternalFrame {
             }
         });
 
+        rbtnepilepsia.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         rbtnepilepsia.setText("Epilepsia");
         rbtnepilepsia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -810,6 +864,7 @@ public class Historial extends javax.swing.JInternalFrame {
             }
         });
 
+        rbtnhepatitis.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         rbtnhepatitis.setText("Hepatitis");
         rbtnhepatitis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -817,6 +872,7 @@ public class Historial extends javax.swing.JInternalFrame {
             }
         });
 
+        rbtnecardiaca.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         rbtnecardiaca.setText("Enfermedad cardiaca");
         rbtnecardiaca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -824,6 +880,7 @@ public class Historial extends javax.swing.JInternalFrame {
             }
         });
 
+        rbtnhipertencion.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         rbtnhipertencion.setText("Hipertencion");
         rbtnhipertencion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -831,6 +888,7 @@ public class Historial extends javax.swing.JInternalFrame {
             }
         });
 
+        rbtnesanguinea.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         rbtnesanguinea.setText("Enfermedad Sanguínea");
         rbtnesanguinea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -838,6 +896,7 @@ public class Historial extends javax.swing.JInternalFrame {
             }
         });
 
+        rbtnpendcrino.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         rbtnpendcrino.setText(" Problema endocrino");
         rbtnpendcrino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -845,6 +904,7 @@ public class Historial extends javax.swing.JInternalFrame {
             }
         });
 
+        rbtnfreumatica.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         rbtnfreumatica.setText("Fiebre Reumática");
         rbtnfreumatica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -852,6 +912,7 @@ public class Historial extends javax.swing.JInternalFrame {
             }
         });
 
+        rbtntoseos.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         rbtntoseos.setText("Trastornos óseos");
         rbtntoseos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -859,6 +920,7 @@ public class Historial extends javax.swing.JInternalFrame {
             }
         });
 
+        rbtndcerebral.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         rbtndcerebral.setText("Daño Cerebral o Facial");
         rbtndcerebral.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -866,6 +928,7 @@ public class Historial extends javax.swing.JInternalFrame {
             }
         });
 
+        rbtnpemocionales.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         rbtnpemocionales.setText("Problemas Emocionales");
         rbtnpemocionales.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -953,7 +1016,7 @@ public class Historial extends javax.swing.JInternalFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 42, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -964,7 +1027,11 @@ public class Historial extends javax.swing.JInternalFrame {
                 .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
         btnguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/aceptar2.png"))); // NOI18N
+        btnguardar.setToolTipText("Guardar");
         btnguardar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/aceptar3.png"))); // NOI18N
         btnguardar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/aceptar1.png"))); // NOI18N
         btnguardar.addActionListener(new java.awt.event.ActionListener() {
@@ -973,25 +1040,8 @@ public class Historial extends javax.swing.JInternalFrame {
             }
         });
 
-        btncancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/cancelar2.png"))); // NOI18N
-        btncancelar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/cancelar3.png"))); // NOI18N
-        btncancelar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/cancelar1.png"))); // NOI18N
-        btncancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btncancelarActionPerformed(evt);
-            }
-        });
-
-        btnactualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/actualizar2.png"))); // NOI18N
-        btnactualizar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/actualizar3.png"))); // NOI18N
-        btnactualizar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/actualizar1.png"))); // NOI18N
-        btnactualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnactualizarActionPerformed(evt);
-            }
-        });
-
         btnlimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/limpiar2.png"))); // NOI18N
+        btnlimpiar.setToolTipText("Limpiar");
         btnlimpiar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/limpiar3.png"))); // NOI18N
         btnlimpiar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/limpiar1.png"))); // NOI18N
         btnlimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -1000,7 +1050,28 @@ public class Historial extends javax.swing.JInternalFrame {
             }
         });
 
+        btnbuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/buscar2.png"))); // NOI18N
+        btnbuscar.setToolTipText("Buscar");
+        btnbuscar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/buscar3.png"))); // NOI18N
+        btnbuscar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/buscar1.png"))); // NOI18N
+        btnbuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbuscarActionPerformed(evt);
+            }
+        });
+
+        btnactualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/actualizar2.png"))); // NOI18N
+        btnactualizar.setToolTipText("Actualizar");
+        btnactualizar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/actualizar3.png"))); // NOI18N
+        btnactualizar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/actualizar1.png"))); // NOI18N
+        btnactualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnactualizarActionPerformed(evt);
+            }
+        });
+
         btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/borrar2.png"))); // NOI18N
+        btneliminar.setToolTipText("Eliminar");
         btneliminar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/borrar3.png"))); // NOI18N
         btneliminar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/borrar1.png"))); // NOI18N
         btneliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -1009,54 +1080,72 @@ public class Historial extends javax.swing.JInternalFrame {
             }
         });
 
-        btnbuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/buscar2.png"))); // NOI18N
-        btnbuscar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/buscarpeq3.png"))); // NOI18N
-        btnbuscar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/buscar1.png"))); // NOI18N
-        btnbuscar.addActionListener(new java.awt.event.ActionListener() {
+        btncancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/cancelar2.png"))); // NOI18N
+        btncancelar.setToolTipText("Salir");
+        btncancelar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/cancelar3.png"))); // NOI18N
+        btncancelar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/botones/cancelar3.png"))); // NOI18N
+        btncancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnbuscarActionPerformed(evt);
+                btncancelarActionPerformed(evt);
             }
         });
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17)
+                .addComponent(btnlimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnactualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btncancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btncancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(btneliminar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnbuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnlimpiar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnguardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnactualizar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnlimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnactualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btncancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(196, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(90, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnactualizar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnbuscar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnguardar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnlimpiar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btneliminar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btncancelar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(443, Short.MAX_VALUE))
+                .addContainerGap(155, Short.MAX_VALUE))
         );
 
         jScrollPane5.setViewportView(jPanel2);
@@ -1065,21 +1154,17 @@ public class Historial extends javax.swing.JInternalFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 746, Short.MAX_VALUE)
-                    .addContainerGap()))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(23, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 705, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1243, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 985, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(246, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(23, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 1094, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1091,8 +1176,8 @@ public class Historial extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -1241,9 +1326,7 @@ public class Historial extends javax.swing.JInternalFrame {
 
     private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
         leerdatos();
-        
         buscar();
-        
     }//GEN-LAST:event_btnbuscarActionPerformed
 
     private void btnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarActionPerformed
@@ -2855,6 +2938,7 @@ public class Historial extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jtxtEstDes;
     private javax.swing.JScrollPane jtxtMastDes;
